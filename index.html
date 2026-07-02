@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CUSAT Mechanical Notes</title>
 <script src="./support.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+  }
+</script>
 </head>
 <body>
 <x-dc>
@@ -21,6 +26,13 @@
   @keyframes gbUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
   @keyframes gbFade { from { opacity: 0; } to { opacity: 1; } }
 </style>
+<link rel="icon" type="image/png" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
+<meta name="theme-color" content="#e0533d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Mech Notes">
 </helmet>
 <div ref="{{ rootRef }}" style="{{ rootStyle }}">
 
@@ -28,7 +40,7 @@
   <header style="position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border);">
     <div style="max-width: 1180px; margin: 0 auto; padding: 12px clamp(14px, 3vw, 28px); display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
       <div onClick="{{ goHome }}" style="display: flex; align-items: center; gap: 10px; cursor: pointer; flex-shrink: 0;">
-        <div style="width: 38px; height: 38px; border-radius: 11px; background: var(--primary); display: grid; place-items: center; color: var(--primary-ink); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; box-shadow: 0 6px 16px -6px var(--primary);">C</div>
+        <div style="width: 38px; height: 38px; border-radius: 11px; background: var(--primary); display: grid; place-items: center; color: var(--primary-ink); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -0.02em; box-shadow: 0 6px 16px -6px var(--primary);">ME</div>
         <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: -0.02em;">CUSAT Mechanical Notes</div>
       </div>
 
@@ -53,12 +65,13 @@
         </sc-if>
       </div>
 
-      <sc-if value="{{ showBarActions }}" hint-placeholder-val="{{ true }}">
-        <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+      <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+        <button onClick="{{ clickInstall }}" title="Install app" style="display: flex; align-items: center; gap: 6px; padding: 0 14px; height: 40px; border-radius: 11px; border: none; background: var(--primary); color: var(--primary-ink); font-size: 13.5px; font-weight: 600; cursor: pointer;"><span style="font-size: 15px;">⬇</span><sc-if value="{{ showInstallLabel }}" hint-placeholder-val="{{ true }}"> Install</sc-if></button>
+        <sc-if value="{{ showBarActions }}" hint-placeholder-val="{{ true }}">
           <button onClick="{{ cycleTheme }}" title="Change color" style="width: 40px; height: 40px; border-radius: 11px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; display: grid; place-items: center;"><span style="width: 16px; height: 16px; border-radius: 50%; background: var(--primary); display: block;"></span></button>
           <button onClick="{{ toggleDark }}" title="Dark mode" style="width: 40px; height: 40px; border-radius: 11px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; font-size: 16px;">{{ darkIcon }}</button>
-        </div>
-      </sc-if>
+        </sc-if>
+      </div>
     </div>
   </header>
 
@@ -229,10 +242,26 @@
   <!-- ============ PREVIEW MODAL ============ -->
   <sc-if value="{{ previewOpen }}" hint-placeholder-val="{{ false }}">
     <div onClick="{{ closeModals }}" style="position: fixed; inset: 0; z-index: 90; background: rgba(8,10,14,0.55); backdrop-filter: blur(4px); display: grid; place-items: center; padding: 20px; animation: gbFade 0.16s ease;">
-      <div onClick="{{ stop }}" style="background: var(--surface); border: 1px solid var(--border); border-radius: 20px; width: min(640px, 100%); max-height: 88vh; overflow: auto; box-shadow: 0 40px 90px -30px rgba(0,0,0,0.6);">
-        <div style="{{ previewHeroStyle }}">
-          <div style="font-family: 'Space Grotesk', monospace; font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.92); letter-spacing: 0.08em;">{{ previewTypeLabel }}</div>
-        </div>
+      <div onClick="{{ stop }}" style="{{ previewModalStyle }}">
+        <sc-if value="{{ showHero }}" hint-placeholder-val="{{ true }}">
+          <div style="{{ previewHeroStyle }}">
+            <div style="font-family: 'Space Grotesk', monospace; font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.92); letter-spacing: 0.08em;">{{ previewTypeLabel }}</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isPdfViewer }}" hint-placeholder-val="{{ false }}">
+          <iframe src="{{ previewHref }}" style="width: 100%; height: 72vh; border: none; display: block;"></iframe>
+        </sc-if>
+        <sc-if value="{{ isOfficeViewer }}" hint-placeholder-val="{{ false }}">
+          <iframe src="{{ previewOfficeSrc }}" style="width: 100%; height: 72vh; border: none; display: block;"></iframe>
+        </sc-if>
+        <sc-if value="{{ isImageViewer }}" hint-placeholder-val="{{ false }}">
+          <div style="background: #000; display: flex; align-items: center; justify-content: center; max-height: 72vh; overflow: hidden;">
+            <img src="{{ previewHref }}" style="max-width: 100%; max-height: 72vh; display: block;">
+          </div>
+        </sc-if>
+        <sc-if value="{{ isVideoViewer }}" hint-placeholder-val="{{ false }}">
+          <video src="{{ previewHref }}" controls autoplay style="width: 100%; max-height: 72vh; display: block; background: #000;"></video>
+        </sc-if>
         <div style="padding: 22px 24px 24px;">
           <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;">
             <div>
@@ -241,9 +270,41 @@
             </div>
             <button onClick="{{ closeModals }}" style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); cursor: pointer; font-size: 16px;">✕</button>
           </div>
+          <sc-if value="{{ noPreviewAvailable }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size: 13px; color: var(--dim); margin-top: 10px;">No inline preview available for this file type — use Download.</div>
+          </sc-if>
           <div style="display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap;">
-            <a href="{{ previewHref }}" target="_blank" rel="noopener" style="flex: 1; min-width: 140px; padding: 13px; border-radius: 12px; border: none; background: var(--primary); color: var(--primary-ink); font-size: 14.5px; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; display: block;">Open</a>
+            <sc-if value="{{ showOpenButton }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ loadViewer }}" style="flex: 1; min-width: 140px; padding: 13px; border-radius: 12px; border: none; background: var(--primary); color: var(--primary-ink); font-size: 14.5px; font-weight: 600; cursor: pointer;">Open</button>
+            </sc-if>
             <a href="{{ previewHref }}" download="{{ previewName }}" style="padding: 13px 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: 14.5px; font-weight: 600; cursor: pointer; text-decoration: none;">Download ↓</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ============ INSTALL HELP MODAL ============ -->
+  <sc-if value="{{ installHelpOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeInstallHelp }}" style="position: fixed; inset: 0; z-index: 90; background: rgba(8,10,14,0.55); backdrop-filter: blur(4px); display: grid; place-items: center; padding: 20px; animation: gbFade 0.16s ease;">
+      <div onClick="{{ stop }}" style="background: var(--surface); border: 1px solid var(--border); border-radius: 20px; width: min(480px, 100%); max-height: 88vh; overflow: auto; box-shadow: 0 40px 90px -30px rgba(0,0,0,0.6); padding: 26px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; letter-spacing: -0.02em; margin: 0;">Install CUSAT Mechanical Notes</h3>
+          <button onClick="{{ closeInstallHelp }}" style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); cursor: pointer; font-size: 16px;">✕</button>
+        </div>
+        <p style="font-size: 13.5px; color: var(--dim); margin: 8px 0 20px;">Adds a full-screen icon to your home screen or app list — no app store needed.</p>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; gap: 14px; align-items: flex-start;">
+            <div style="width: 28px; height: 28px; border-radius: 9px; background: var(--primary-soft); color: var(--primary); display: grid; place-items: center; font-weight: 700; flex-shrink: 0; font-size: 14px;"></div>
+            <div style="font-size: 14.5px; line-height: 1.5;"><b>iPhone / iPad (Safari):</b> tap the Share button (square with an arrow), scroll down and tap <b>Add to Home Screen</b>, then <b>Add</b>.</div>
+          </div>
+          <div style="display: flex; gap: 14px; align-items: flex-start;">
+            <div style="width: 28px; height: 28px; border-radius: 9px; background: var(--primary-soft); color: var(--primary); display: grid; place-items: center; font-weight: 700; flex-shrink: 0; font-size: 14px;">▤</div>
+            <div style="font-size: 14.5px; line-height: 1.5;"><b>Android (Chrome):</b> tap the ⋮ menu top-right, then <b>Install app</b> (or <b>Add to Home screen</b>).</div>
+          </div>
+          <div style="display: flex; gap: 14px; align-items: flex-start;">
+            <div style="width: 28px; height: 28px; border-radius: 9px; background: var(--primary-soft); color: var(--primary); display: grid; place-items: center; font-weight: 700; flex-shrink: 0; font-size: 14px;">⌥</div>
+            <div style="font-size: 14.5px; line-height: 1.5;"><b>Desktop (Chrome / Edge):</b> click the install icon in the address bar (a monitor with a ↓), or ⋮ menu → <b>Install CUSAT Mechanical Notes…</b>.</div>
           </div>
         </div>
       </div>
@@ -256,6 +317,7 @@
       <button onClick="{{ goHome }}" style="flex: 1; background: none; border: none; color: var(--text); cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px; font-size: 11px; font-weight: 600;"><span style="font-size: 19px;">⌂</span>Home</button>
       <button onClick="{{ focusSearch }}" style="flex: 1; background: none; border: none; color: var(--text); cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px; font-size: 11px; font-weight: 600;"><span style="font-size: 19px;">⌕</span>Search</button>
       <button onClick="{{ toggleDark }}" style="flex: 1; background: none; border: none; color: var(--text); cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px; font-size: 11px; font-weight: 600;"><span style="font-size: 19px;">{{ darkIcon }}</span>Theme</button>
+      <button onClick="{{ clickInstall }}" style="flex: 1; background: none; border: none; color: var(--primary); cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px; font-size: 11px; font-weight: 600;"><span style="font-size: 19px;">⬇</span>Install</button>
     </nav>
   </sc-if>
 
@@ -265,8 +327,9 @@
 class Component extends DCLogic {
   state = {
     view: 'home', scheme: '2019', sem: null, subjectId: null, tab: 'all', search: '',
-    dark: false, theme: null, isMobile: false, preview: null,
+    dark: false, theme: null, isMobile: false, preview: null, viewerOpen: false,
     manifest: null, loadError: false,
+    installPromptEvent: null, showInstallHelp: false,
   };
 
   BUCKET_META = {
@@ -299,12 +362,16 @@ class Component extends DCLogic {
     window.addEventListener('resize', measure);
     measure();
 
+    this._onBip = (e) => { e.preventDefault(); this.setState({ installPromptEvent: e }); };
+    window.addEventListener('beforeinstallprompt', this._onBip);
+    window.addEventListener('appinstalled', () => this.setState({ installPromptEvent: null }));
+
     fetch('./manifest.json')
       .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(manifest => this.setState({ manifest }))
       .catch(err => { console.error('[cusat-mech-notes] manifest load failed:', err); this.setState({ loadError: true }); });
   }
-  componentWillUnmount() { this._ro && this._ro.disconnect(); window.removeEventListener('resize', this._measure); }
+  componentWillUnmount() { this._ro && this._ro.disconnect(); window.removeEventListener('resize', this._measure); window.removeEventListener('beforeinstallprompt', this._onBip); }
 
   // ---- data helpers (all real, sourced from manifest.json) ----
   schemeData(scheme) { return (this.state.manifest && this.state.manifest[scheme]) || {}; }
@@ -325,7 +392,7 @@ class Component extends DCLogic {
   }
 
   fileTitle(name) { const i = name.lastIndexOf('.'); return i > 0 ? name.slice(0, i) : name; }
-  fileHref(path) { return 'https://raw.githubusercontent.com/NB6RULES/Cusat-Mech-Drive/main/' + encodeURI(path); }
+  fileHref(path) { return 'https://cdn.jsdelivr.net/gh/NB6RULES/Cusat-Mech-Drive@main/' + encodeURI(path); }
 
   vars() {
     const themes = {
@@ -356,16 +423,36 @@ class Component extends DCLogic {
   onSearch = (e) => this.setState({ search: e.target.value });
   toggleDark = () => this.setState({ dark: !this.state.dark });
   cycleTheme = () => { const order = ['indigo', 'emerald', 'coral']; const cur = this.state.theme || this.props.theme || 'coral'; this.setState({ theme: order[(order.indexOf(cur) + 1) % 3] }); };
-  openPreview = (r) => this.setState({ preview: r });
-  closeModals = () => this.setState({ preview: null });
+  openPreview = (r) => this.setState({ preview: r, viewerOpen: false });
+  closeModals = () => this.setState({ preview: null, viewerOpen: false });
+  loadViewer = () => this.setState({ viewerOpen: true });
+  closeInstallHelp = () => this.setState({ showInstallHelp: false });
+  clickInstall = () => {
+    const evt = this.state.installPromptEvent;
+    if (evt) {
+      evt.prompt();
+      evt.userChoice.finally(() => this.setState({ installPromptEvent: null }));
+    } else {
+      this.setState({ showInstallHelp: true });
+    }
+  };
   stop = (e) => e.stopPropagation();
   focusSearch = () => { window.scrollTo({ top: 0 }); this.searchRef && this.searchRef.current && this.searchRef.current.focus(); };
+
+  viewerKind(ext) {
+    if (ext === 'pdf') return 'pdf';
+    if (['ppt', 'pptx', 'doc', 'docx', 'xls', 'xlsx'].includes(ext)) return 'office';
+    if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) return 'image';
+    if (['mp4', 'mov', 'webm', 'm4v'].includes(ext)) return 'video';
+    return 'none';
+  }
 
   renderVals() {
     const st = this.state;
 
-    if (st.loadError) return { rootStyle: { ...this.vars(), minHeight: '100vh' }, isLoading: false, loadFailed: true, isReady: false, showCrumb: false, isMobile: st.isMobile, showBarActions: true, hasSearch: false, search: '', onSearch: this.onSearch, goHome: this.goHome, cycleTheme: this.cycleTheme, toggleDark: this.toggleDark, darkIcon: st.dark ? '☀' : '☾', focusSearch: this.focusSearch, rootRef: this.rootRef, searchRef: this.searchRef, hasInset: false, previewOpen: false };
-    if (!st.manifest) return { rootStyle: { ...this.vars(), minHeight: '100vh' }, isLoading: true, loadFailed: false, isReady: false, showCrumb: false, isMobile: st.isMobile, showBarActions: true, hasSearch: false, search: '', onSearch: this.onSearch, goHome: this.goHome, cycleTheme: this.cycleTheme, toggleDark: this.toggleDark, darkIcon: st.dark ? '☀' : '☾', focusSearch: this.focusSearch, rootRef: this.rootRef, searchRef: this.searchRef, hasInset: false, previewOpen: false };
+    const installCommon = { clickInstall: this.clickInstall, showInstallLabel: !st.isMobile, installHelpOpen: st.showInstallHelp, closeInstallHelp: this.closeInstallHelp, stop: this.stop };
+    if (st.loadError) return { rootStyle: { ...this.vars(), minHeight: '100vh' }, isLoading: false, loadFailed: true, isReady: false, showCrumb: false, isMobile: st.isMobile, showBarActions: true, hasSearch: false, search: '', onSearch: this.onSearch, goHome: this.goHome, cycleTheme: this.cycleTheme, toggleDark: this.toggleDark, darkIcon: st.dark ? '☀' : '☾', focusSearch: this.focusSearch, rootRef: this.rootRef, searchRef: this.searchRef, hasInset: false, previewOpen: false, ...installCommon };
+    if (!st.manifest) return { rootStyle: { ...this.vars(), minHeight: '100vh' }, isLoading: true, loadFailed: false, isReady: false, showCrumb: false, isMobile: st.isMobile, showBarActions: true, hasSearch: false, search: '', onSearch: this.onSearch, goHome: this.goHome, cycleTheme: this.cycleTheme, toggleDark: this.toggleDark, darkIcon: st.dark ? '☀' : '☾', focusSearch: this.focusSearch, rootRef: this.rootRef, searchRef: this.searchRef, hasInset: false, previewOpen: false, ...installCommon };
 
     const BM = this.BUCKET_META;
     const badge = ext => ({ padding: '4px 9px', borderRadius: '8px', fontFamily: "'Space Grotesk', monospace", fontSize: '11px', fontWeight: 700, background: this.extColor(ext) + '22', color: this.extColor(ext), flexShrink: 0 });
@@ -479,13 +566,19 @@ class Component extends DCLogic {
 
     // ---- preview modal ----
     const p = st.preview;
-    let previewHeroStyle = {}, previewTypeLabel = '', previewHref = '', previewName = '';
+    let previewHeroStyle = {}, previewTypeLabel = '', previewHref = '', previewName = '', previewOfficeSrc = '';
+    let previewModalStyle = { background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '20px', width: 'min(640px, 100%)', maxHeight: '88vh', overflow: 'auto', boxShadow: '0 40px 90px -30px rgba(0,0,0,0.6)' };
+    let kind = 'none', viewerActive = false;
     if (p) {
       const c = this.extColor(p.ext);
       previewHeroStyle = { height: '140px', display: 'grid', placeItems: 'center', background: `repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0 12px, transparent 12px 24px), linear-gradient(135deg, ${c}, color-mix(in srgb, ${c} 65%, #000))` };
       previewTypeLabel = this.extLabel(p.ext) + ' FILE';
       previewHref = this.fileHref(p.path);
       previewName = p.name;
+      previewOfficeSrc = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(previewHref);
+      kind = this.viewerKind(p.ext);
+      viewerActive = st.viewerOpen && kind !== 'none';
+      if (viewerActive) previewModalStyle = { ...previewModalStyle, width: 'min(1000px, 96vw)' };
     }
 
     return {
@@ -511,9 +604,13 @@ class Component extends DCLogic {
       subjName: cur ? cur.name : '', subjCrumb: cur ? (st.scheme + ' SCHEME · SEMESTER ' + st.sem) : '', subjTags, tabs, resources,
       hasResources: resources.length > 0, noResources: resources.length === 0,
       // preview
-      previewOpen: !!p, previewHeroStyle, previewTypeLabel, previewHref, previewName,
+      previewOpen: !!p, previewHeroStyle, previewTypeLabel, previewHref, previewName, previewOfficeSrc, previewModalStyle,
       previewTitle: p ? this.fileTitle(p.name) : '', previewMeta: p ? this.fmtSize(p.size) : '', previewSub: p ? p.subjName : '',
-      closeModals: this.closeModals, stop: this.stop,
+      showHero: !viewerActive, isPdfViewer: viewerActive && kind === 'pdf', isOfficeViewer: viewerActive && kind === 'office',
+      isImageViewer: viewerActive && kind === 'image', isVideoViewer: viewerActive && kind === 'video',
+      showOpenButton: !!p && !viewerActive && kind !== 'none', noPreviewAvailable: !!p && kind === 'none',
+      loadViewer: this.loadViewer, closeModals: this.closeModals, stop: this.stop,
+      clickInstall: this.clickInstall, showInstallLabel: !st.isMobile, installHelpOpen: st.showInstallHelp, closeInstallHelp: this.closeInstallHelp,
     };
   }
 }
