@@ -1,0 +1,875 @@
+1
+00:00:01,960 --> 00:00:03,670
+Let's start our lesson.
+
+2
+00:00:04,510 --> 00:00:12,280
+Today, we learn about extrude and recall features to create the basic and simple part, we will start
+
+3
+00:00:12,280 --> 00:00:14,410
+with the extra features Lechter.
+
+4
+00:00:15,650 --> 00:00:21,740
+Create a new file model and then OK.
+
+5
+00:00:26,550 --> 00:00:33,000
+The extrudes is a process of taking two dimensional profile and converting it to the tree by giving
+
+6
+00:00:33,000 --> 00:00:39,320
+it to some sequence as a simple example of this would be taking the circle and convert it to the cylinder.
+
+7
+00:00:39,630 --> 00:00:45,250
+Once you had to create the profile, a profile you want to extrude, activate, extrude, Coman.
+
+8
+00:00:45,270 --> 00:00:47,730
+So let's firstly draw.
+
+9
+00:00:48,790 --> 00:00:52,010
+Simple, two dimensional sketch, select the plane.
+
+10
+00:00:52,750 --> 00:00:53,120
+OK.
+
+11
+00:00:54,510 --> 00:00:55,230
+So.
+
+12
+00:00:56,740 --> 00:00:59,380
+Let's throw the first rectangle.
+
+13
+00:01:01,380 --> 00:01:03,510
+And put the dimensions.
+
+14
+00:01:05,510 --> 00:01:10,960
+For example, here is one hundred fifty millimeters and the.
+
+15
+00:01:12,150 --> 00:01:12,930
+It is.
+
+16
+00:01:14,310 --> 00:01:15,510
+Eight mm.
+
+17
+00:01:17,960 --> 00:01:26,750
+So then, for example, we can add the circle circle by the center of all the people in a circle and
+
+18
+00:01:27,170 --> 00:01:33,770
+put the animation for the circle, for example, you can make it sound.
+
+19
+00:01:33,800 --> 00:01:34,730
+Mm.
+
+20
+00:01:36,340 --> 00:01:40,610
+And if you extrude this.
+
+21
+00:01:42,470 --> 00:01:49,840
+It will not be excluded because you see here intersection between circle and the rectangle, so it will
+
+22
+00:01:49,910 --> 00:01:57,350
+it will be not extruded in order to extrude your skin should be unique and close it.
+
+23
+00:01:57,560 --> 00:02:05,370
+So we will use the quick trim function in order to cut off unnecessary sketch.
+
+24
+00:02:05,400 --> 00:02:06,740
+So this one.
+
+25
+00:02:06,890 --> 00:02:08,620
+This one and this one.
+
+26
+00:02:08,630 --> 00:02:16,430
+So now it is open system and this is totally closed system and we can make extrude.
+
+27
+00:02:16,430 --> 00:02:24,980
+So in order to make the extra do you see here in rebar, extrude function and press this in this here
+
+28
+00:02:24,980 --> 00:02:27,950
+in the selected course, you have to select the cover.
+
+29
+00:02:27,970 --> 00:02:29,720
+It's automatically selected.
+
+30
+00:02:29,720 --> 00:02:40,400
+You see the here they selected and in here you can make the define the thickness of this scale.
+
+31
+00:02:40,440 --> 00:02:43,040
+So in this case, it's twenty five millimeters.
+
+32
+00:02:43,040 --> 00:02:46,270
+You see an upward variation of twenty five millimeters.
+
+33
+00:02:46,280 --> 00:02:52,940
+So you should press here, OK, you will get a solid function extruded.
+
+34
+00:02:54,310 --> 00:02:55,210
+Extruded
+
+35
+00:02:58,480 --> 00:03:00,580
+your sketch.
+
+36
+00:03:01,090 --> 00:03:11,650
+So in the similar way, in a similar way, for example, if we make the return to the return to the
+
+37
+00:03:11,650 --> 00:03:17,580
+sketch, we can make symmetrical options on the dialog bar.
+
+38
+00:03:17,620 --> 00:03:27,010
+So you press the extrude if you open here, there is in the start point, it is the symmetric value,
+
+39
+00:03:27,510 --> 00:03:35,770
+if you like the symmetry, if you see from the sketch, it will be made symmetric.
+
+40
+00:03:35,770 --> 00:03:42,250
+Twenty five inch upward and downward extruded and totally 50 millimeters.
+
+41
+00:03:42,280 --> 00:03:45,040
+So if you look you get.
+
+42
+00:03:46,740 --> 00:03:53,760
+Extruded sketch with the 50 millimeters in which so.
+
+43
+00:03:55,140 --> 00:04:05,820
+Next, this is reward future's reward is the process of taking two dimensional profile and reward it
+
+44
+00:04:05,820 --> 00:04:13,320
+about the centerline to create the three dimensional geometric shapes that are actually symmetric while
+
+45
+00:04:13,410 --> 00:04:15,640
+creating a sketch for the whole future.
+
+46
+00:04:15,660 --> 00:04:23,160
+It's important to think about the causational shape that will define the 3D geometry once it is revealed
+
+47
+00:04:23,160 --> 00:04:24,510
+about an axis.
+
+48
+00:04:25,290 --> 00:04:28,310
+So let's open new.
+
+49
+00:04:29,550 --> 00:04:31,110
+OK, let's firstly delete.
+
+50
+00:04:32,100 --> 00:04:39,040
+This would like and exclude, delete and delete this image, so C.H..
+
+51
+00:04:40,550 --> 00:04:51,530
+OK, plain press, OK, to make the reveal, let's firstly draw one simple sketch, so.
+
+52
+00:04:54,040 --> 00:04:56,920
+Let's the selected profile.
+
+53
+00:04:57,900 --> 00:05:03,840
+And the rope line is, let's make it one hundred.
+
+54
+00:05:06,000 --> 00:05:10,710
+And draw one line, it is let's make it 30 millimeters.
+
+55
+00:05:15,220 --> 00:05:16,420
+Fifty millimeters.
+
+56
+00:05:17,100 --> 00:05:20,980
+And this one, is it sort of three?
+
+57
+00:05:25,400 --> 00:05:29,420
+And what it is, 50 millimeters.
+
+58
+00:05:32,880 --> 00:05:34,980
+And here you can make.
+
+59
+00:05:36,020 --> 00:05:36,740
+The same.
+
+60
+00:05:37,950 --> 00:05:44,670
+Legs, and this one is also let's make it 40 millimeters.
+
+61
+00:05:47,380 --> 00:05:50,110
+And this is in the same length.
+
+62
+00:05:51,730 --> 00:05:57,130
+And this is all the same length, and this is let's make the three.
+
+63
+00:06:01,360 --> 00:06:09,580
+And it is let's make it 50 and in where to go, so 90 degrees, so.
+
+64
+00:06:12,660 --> 00:06:14,820
+This one and this one.
+
+65
+00:06:15,360 --> 00:06:17,980
+OK, we draw the sketch now.
+
+66
+00:06:18,720 --> 00:06:20,320
+Let's throw one line here.
+
+67
+00:06:20,340 --> 00:06:21,580
+It's a center line.
+
+68
+00:06:22,230 --> 00:06:30,090
+So in order to make a rotation around this and convert it to the reference and distance.
+
+69
+00:06:32,340 --> 00:06:36,870
+Yes, let's make its distance between this and this.
+
+70
+00:06:38,520 --> 00:06:39,390
+Twenty five.
+
+71
+00:06:42,110 --> 00:06:42,850
+Twenty five.
+
+72
+00:06:43,310 --> 00:06:52,760
+And here, if you open the export, there is the Revo function, OK, Prester a wolf and for the select
+
+73
+00:06:52,800 --> 00:06:57,550
+group and select this quote is selected automatically by the index.
+
+74
+00:06:57,830 --> 00:07:00,970
+So in the specify for the vector.
+
+75
+00:07:01,370 --> 00:07:07,940
+So let's for the specified for the exit or vector select this axis.
+
+76
+00:07:07,940 --> 00:07:10,040
+So it's axis of rotation.
+
+77
+00:07:10,550 --> 00:07:15,920
+And you see here the sketch is revolved around this axis.
+
+78
+00:07:15,920 --> 00:07:20,210
+So you see you can make that angle of the rotation.
+
+79
+00:07:20,220 --> 00:07:24,500
+It's in this case it's six handle is three hundred sixty degree.
+
+80
+00:07:24,540 --> 00:07:32,360
+So for example, if you add one hundred eighty percent or so, you see it's all in one hundred eighty
+
+81
+00:07:32,360 --> 00:07:32,750
+degrees.
+
+82
+00:07:32,750 --> 00:07:33,770
+All you can make.
+
+83
+00:07:34,190 --> 00:07:38,420
+One hundred, two hundred seventy.
+
+84
+00:07:38,450 --> 00:07:40,640
+So you see here this.
+
+85
+00:07:42,210 --> 00:07:49,530
+Is revolved around this axis, so it is the remove function.
+
+86
+00:07:51,820 --> 00:07:52,590
+So in the.
+
+87
+00:07:54,840 --> 00:08:01,830
+In the extruder extrude function, there is several additional options for the extrude coalman to be
+
+88
+00:08:01,830 --> 00:08:04,680
+added in the three dimensional geometry.
+
+89
+00:08:04,810 --> 00:08:11,930
+Now you see this function, so you see this reward.
+
+90
+00:08:12,180 --> 00:08:15,030
+So let's do it.
+
+91
+00:08:15,030 --> 00:08:15,570
+This one.
+
+92
+00:08:16,810 --> 00:08:25,690
+Until this one, let's select the New Age, for example, select and explain and press, OK, let's
+
+93
+00:08:25,690 --> 00:08:31,070
+draw one for one rectangle using three from the center.
+
+94
+00:08:31,090 --> 00:08:31,450
+OK.
+
+95
+00:08:33,740 --> 00:08:47,120
+And put the dimensions using the European dimension, for example, the length is two hundred and eight.
+
+96
+00:08:48,360 --> 00:08:49,860
+One hundred fifty.
+
+97
+00:08:53,270 --> 00:08:56,660
+So then extrude it in.
+
+98
+00:08:58,780 --> 00:09:07,380
+50 millimeters, so you select distance 50 millimeter.
+
+99
+00:09:07,420 --> 00:09:10,060
+So it's extra okay now.
+
+100
+00:09:15,970 --> 00:09:18,200
+OK, select the sketch again.
+
+101
+00:09:20,700 --> 00:09:31,710
+Select this face, you see, it is the red becomes red like this face, and it will be normal to displace
+
+102
+00:09:32,380 --> 00:09:33,120
+this face.
+
+103
+00:09:33,150 --> 00:09:34,500
+So from here.
+
+104
+00:09:35,600 --> 00:09:36,680
+So like the arc.
+
+105
+00:09:38,920 --> 00:09:39,490
+Using.
+
+106
+00:09:40,880 --> 00:09:42,330
+Two or three points.
+
+107
+00:09:42,380 --> 00:09:42,710
+So.
+
+108
+00:09:44,440 --> 00:09:49,780
+OK, so put the emission for this example, the diameter is.
+
+109
+00:10:05,600 --> 00:10:12,950
+It's 90 degrees also, you can make the same mistake, for example, if you remember, there is more
+
+110
+00:10:12,980 --> 00:10:20,420
+symmetric function, you can make symmetric this one in this one around this exit will become symmetry.
+
+111
+00:10:20,450 --> 00:10:28,690
+So now I would like to extrude this out, but in order to do this are extruded.
+
+112
+00:10:28,700 --> 00:10:30,980
+So still we have to close it count.
+
+113
+00:10:31,040 --> 00:10:35,750
+So I have to close this point using the simple line.
+
+114
+00:10:35,760 --> 00:10:40,610
+So you see it is closed and now I can extrude.
+
+115
+00:10:40,910 --> 00:10:46,620
+If I will not close this line, it will be not so extrude.
+
+116
+00:10:47,120 --> 00:10:48,380
+So you see.
+
+117
+00:10:49,410 --> 00:10:51,840
+It is extruded.
+
+118
+00:10:52,850 --> 00:11:00,660
+It is the one we will draw more complex shapes, so another way.
+
+119
+00:11:00,680 --> 00:11:07,640
+For example, let's make clothes, this suit and the clothes of this one.
+
+120
+00:11:08,810 --> 00:11:11,270
+OK, I will show one more thing one more time.
+
+121
+00:11:11,270 --> 00:11:14,000
+Extrude, extrude of this.
+
+122
+00:11:14,690 --> 00:11:21,380
+And here you see in the balloon, in the balloon there is the Unite Unite function.
+
+123
+00:11:21,710 --> 00:11:29,120
+That means if you press this unite and in the selected body you select the rectangle that's the extruded
+
+124
+00:11:29,210 --> 00:11:31,970
+before it will be unite.
+
+125
+00:11:32,210 --> 00:11:34,360
+It will unite two elements.
+
+126
+00:11:34,370 --> 00:11:37,220
+It will they will become one element.
+
+127
+00:11:37,230 --> 00:11:45,590
+So always when you make such kind of sketch, you have to make unite of two elements.
+
+128
+00:11:45,980 --> 00:11:49,250
+OK, so this one and this one become one element.
+
+129
+00:11:49,260 --> 00:11:52,250
+So select in this one.
+
+130
+00:11:53,510 --> 00:11:56,330
+Get from here to like this one and delete.
+
+131
+00:11:56,690 --> 00:12:06,830
+So let's I mean, these are let's now see how to make cut substraction.
+
+132
+00:12:07,000 --> 00:12:16,970
+So select the extrude and the for the for the select could select this olg.
+
+133
+00:12:18,940 --> 00:12:26,320
+And the from the balloon you see here does attract so in the direction is in the upward direction from
+
+134
+00:12:26,320 --> 00:12:33,500
+the here in the extrude function, open the direction and he'll make the rest that.
+
+135
+00:12:33,660 --> 00:12:35,020
+So it will be downward.
+
+136
+00:12:36,310 --> 00:12:39,070
+And if you press that, OK, this.
+
+137
+00:12:40,860 --> 00:12:47,910
+ARC will be subtracted from that this rectangle, it is the one way of making substraction.
+
+138
+00:12:51,010 --> 00:13:01,570
+Option, so let's the delete this one and then, I mean the initial rectangle or pressed again exclude
+
+139
+00:13:01,990 --> 00:13:10,420
+so select the are you make a reverse direction and if you open the boolean, there is.
+
+140
+00:13:12,720 --> 00:13:17,000
+Function of intersection, if you make the intersection and press.
+
+141
+00:13:17,030 --> 00:13:19,840
+OK, this rectangle will be disappeared.
+
+142
+00:13:19,850 --> 00:13:24,440
+All the remaining part will be intersection between the arc and the rectangle.
+
+143
+00:13:24,470 --> 00:13:27,410
+So ARC will be animated.
+
+144
+00:13:27,620 --> 00:13:29,000
+So, you see, it is the.
+
+145
+00:13:31,240 --> 00:13:40,150
+It is the intersection we have seen unite or subtract in intersection, so we see the intersection.
+
+146
+00:13:40,300 --> 00:13:46,330
+This is the method of moving in the extrudes extrude function.
+
+147
+00:13:46,360 --> 00:13:50,770
+This is the methods of the BO1 extrude function.
+
+148
+00:13:51,730 --> 00:13:52,680
+Next up.
+
+149
+00:13:54,580 --> 00:14:02,620
+Of the functions, that's the call it limits on the extra there are there is a limit S. So here limit
+
+150
+00:14:02,630 --> 00:14:05,320
+section, it's the starting and end point.
+
+151
+00:14:05,620 --> 00:14:12,370
+So in the limitation has the various options to define the start and end limits of the future.
+
+152
+00:14:13,150 --> 00:14:20,140
+If you open the highest start point, there is the we have seen the symmetric where we will live and
+
+153
+00:14:20,140 --> 00:14:22,990
+we will see the other options in the limit.
+
+154
+00:14:23,020 --> 00:14:26,050
+So from the start, from all of us in the end of.
+
+155
+00:14:28,240 --> 00:14:29,890
+So let's start in the.
+
+156
+00:14:31,020 --> 00:14:35,010
+Uh, first one is the let's go until the next.
+
+157
+00:14:35,280 --> 00:14:44,460
+So in order to see how to use it until the next, let's firstly go one next and let's do it this one
+
+158
+00:14:44,940 --> 00:14:49,840
+and do it this one and let's end this rectangle.
+
+159
+00:14:49,860 --> 00:14:50,220
+So.
+
+160
+00:15:00,240 --> 00:15:00,870
+And.
+
+161
+00:15:05,510 --> 00:15:07,370
+In here, you see the Darton.
+
+162
+00:15:08,580 --> 00:15:18,090
+Is additional that on plane will have to put additional planes on the existing ships on the next lesson.
+
+163
+00:15:18,120 --> 00:15:28,620
+Now, let's select that plane from here at a distance and say that this plane, this face you see from
+
+164
+00:15:28,630 --> 00:15:32,330
+this face the distance, for example, let's make it the.
+
+165
+00:15:33,900 --> 00:15:35,310
+Let's make it bigger.
+
+166
+00:15:35,430 --> 00:15:48,270
+For example, the 80 and hear the numbers, let's drill two to that one place and so to that one place.
+
+167
+00:15:48,570 --> 00:15:52,020
+Starting from there, this plane is created.
+
+168
+00:15:52,020 --> 00:15:53,100
+Distance is 80.
+
+169
+00:15:53,100 --> 00:15:55,530
+Mm mm.
+
+170
+00:15:55,530 --> 00:16:00,450
+From the here to the two planes is created and the sketch.
+
+171
+00:16:01,850 --> 00:16:05,700
+And select the dishearten plan and press looking.
+
+172
+00:16:07,040 --> 00:16:07,460
+So.
+
+173
+00:16:13,190 --> 00:16:17,330
+Let's drove the one rectangle here.
+
+174
+00:16:18,290 --> 00:16:20,780
+OK, two points.
+
+175
+00:16:22,610 --> 00:16:23,300
+And the.
+
+176
+00:16:26,860 --> 00:16:27,950
+Selective finish.
+
+177
+00:16:28,210 --> 00:16:30,130
+So Rectangle is.
+
+178
+00:16:34,490 --> 00:16:38,210
+Is created in the plane and the make extruded.
+
+179
+00:16:39,140 --> 00:16:42,990
+This is and it's 50 millimeter press.
+
+180
+00:16:43,640 --> 00:16:50,330
+OK, that is the mistake because it's an intersection and that make Eagle known and it's great.
+
+181
+00:16:50,360 --> 00:16:50,810
+So.
+
+182
+00:16:56,320 --> 00:16:57,670
+And the selected this.
+
+183
+00:17:01,750 --> 00:17:05,230
+This plane, rock and roll.
+
+184
+00:17:06,570 --> 00:17:08,040
+Smaller, rectangular.
+
+185
+00:17:09,300 --> 00:17:10,260
+Excluded.
+
+186
+00:17:10,950 --> 00:17:21,150
+So if you select here and wear blue until the next, you see it automatically and well goes until the
+
+187
+00:17:21,150 --> 00:17:21,720
+next.
+
+188
+00:17:23,680 --> 00:17:30,650
+Next extruders future, if you select the starting point also until the next, it will continue.
+
+189
+00:17:31,180 --> 00:17:41,840
+The starting point will be until then, until the this in the first extruded extruded future.
+
+190
+00:17:42,220 --> 00:17:44,200
+This is until the next.
+
+191
+00:17:47,050 --> 00:17:53,110
+If you make the value in Sipi, this is hard to use until the next.
+
+192
+00:17:55,490 --> 00:18:00,170
+Limited function, limited function in the extrude.
+
+193
+00:18:00,860 --> 00:18:03,510
+So next one is the until the selected.
+
+194
+00:18:03,620 --> 00:18:08,990
+So it will remain low and then this will select.
+
+195
+00:18:08,990 --> 00:18:10,730
+The next one is.
+
+196
+00:18:15,890 --> 00:18:16,310
+Okay.
+
+197
+00:18:17,420 --> 00:18:19,040
+Let the delete.
+
+198
+00:18:20,800 --> 00:18:21,400
+Jerry.
+
+199
+00:18:28,680 --> 00:18:30,570
+Delete this one.
+
+200
+00:18:31,590 --> 00:18:35,610
+Let's try this one, gay extrude.
+
+201
+00:18:36,700 --> 00:18:41,850
+So like this one until the selected here.
+
+202
+00:18:45,570 --> 00:18:56,100
+Their value is until the selected and the direction is in this case, let's reverse the direction until
+
+203
+00:18:56,100 --> 00:18:56,190
+the.
+
+204
+00:18:56,540 --> 00:19:01,320
+So in this case, you have to select the phase where you want to extrude this.
+
+205
+00:19:01,770 --> 00:19:04,220
+So let's select this phase.
+
+206
+00:19:04,230 --> 00:19:07,620
+It is the you see, it becomes red, you should say, like this one.
+
+207
+00:19:09,210 --> 00:19:12,320
+This will become let's make it zero.
+
+208
+00:19:13,020 --> 00:19:20,140
+So it will become the extruded until the this face press.
+
+209
+00:19:20,230 --> 00:19:20,560
+Okay.
+
+210
+00:19:20,910 --> 00:19:25,190
+This is the only way of making extruded function.
+
+211
+00:19:25,620 --> 00:19:26,070
+So.
+
+212
+00:19:28,100 --> 00:19:43,910
+Next is let's do this one, next is let's select extrude this one this year through an issue selected
+
+213
+00:19:43,910 --> 00:19:44,600
+through all.
+
+214
+00:19:49,380 --> 00:19:56,250
+And from here, they'll subtract and this one that will go through all this.
+
+215
+00:20:10,120 --> 00:20:11,360
+Let's make zero.
+
+216
+00:20:14,790 --> 00:20:20,910
+You see it going through all substract around this big rectangle, so it is subtracted.
+
+217
+00:20:30,270 --> 00:20:30,780
+So.
+
+218
+00:20:33,540 --> 00:20:37,680
+That's all of today's lesson on the next lesson.
+
+219
+00:20:37,710 --> 00:20:41,220
+We will see how to put that in place on existing.

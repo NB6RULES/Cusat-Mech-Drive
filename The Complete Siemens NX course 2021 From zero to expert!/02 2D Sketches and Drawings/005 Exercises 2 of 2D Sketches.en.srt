@@ -1,0 +1,899 @@
+1
+00:00:01,320 --> 00:00:08,010
+Hello, Spoon's, let's start our second lesson in practice from cut, cut, cut down modeling on the
+
+2
+00:00:08,010 --> 00:00:09,420
+manufacturing process cost.
+
+3
+00:00:11,790 --> 00:00:14,370
+Let's let's start with you, project.
+
+4
+00:00:17,460 --> 00:00:23,250
+Sees it as after thought number for.
+
+5
+00:00:24,220 --> 00:00:26,110
+And the folder on the desktop.
+
+6
+00:00:27,420 --> 00:00:27,910
+OK.
+
+7
+00:00:28,510 --> 00:00:28,910
+OK.
+
+8
+00:00:32,870 --> 00:00:38,750
+So like this cage and the X and Y plane press, OK?
+
+9
+00:00:42,640 --> 00:00:43,450
+We will start.
+
+10
+00:00:44,350 --> 00:00:53,040
+First successful day of this project must first draw the circle, the circle is the diameter is seven
+
+11
+00:00:53,040 --> 00:00:58,480
+to eight in this circle, the reference circle, then the fifty eight.
+
+12
+00:01:01,310 --> 00:01:05,260
+Let's let's select a circle in the center.
+
+13
+00:01:06,380 --> 00:01:08,540
+OK, seven to eight.
+
+14
+00:01:12,490 --> 00:01:15,000
+Seven to eight percent.
+
+15
+00:01:18,010 --> 00:01:19,750
+Then friend circle.
+
+16
+00:01:21,610 --> 00:01:23,500
+Fifty eight percent.
+
+17
+00:01:25,460 --> 00:01:34,910
+Convert this circle to the reference by selecting, OK, next list to draw.
+
+18
+00:01:35,010 --> 00:01:35,870
+Also this.
+
+19
+00:01:38,180 --> 00:01:42,670
+Circle the diameter of 32, it's also referenced circle.
+
+20
+00:01:47,120 --> 00:01:50,000
+32 percent committed.
+
+21
+00:01:52,660 --> 00:02:02,080
+To the reference so now is to draw these elements of the project, firstly draw the circle with them,
+
+22
+00:02:02,170 --> 00:02:02,920
+the 14.
+
+23
+00:02:10,000 --> 00:02:10,820
+Mr..
+
+24
+00:02:14,590 --> 00:02:16,150
+Is 14 percent.
+
+25
+00:02:17,680 --> 00:02:21,210
+Okay, let's try one more vertical line.
+
+26
+00:02:22,440 --> 00:02:33,990
+That's also the reference line and using the geometry constraint and point on the, quote, selectees.
+
+27
+00:02:35,570 --> 00:02:43,040
+And like this one, then the center of the circle is the circle, so it's allocated.
+
+28
+00:02:46,030 --> 00:02:49,150
+Like this up to this element, so.
+
+29
+00:02:53,110 --> 00:02:54,730
+This element so.
+
+30
+00:03:13,220 --> 00:03:18,920
+Rope line and make it vertical.
+
+31
+00:03:20,400 --> 00:03:27,690
+And extend it until the year and make it near.
+
+32
+00:03:32,430 --> 00:03:35,880
+And the distance it wants to distance.
+
+33
+00:03:38,160 --> 00:03:52,360
+You six millimeters and they find this at this point in this point below the line, so and trim these
+
+34
+00:03:52,380 --> 00:03:56,820
+parts so we draw the element inside of the circle.
+
+35
+00:03:57,150 --> 00:04:08,550
+So now it's to make its pattern of using the circular layout, circular layout, select the curve discourse
+
+36
+00:04:08,550 --> 00:04:16,260
+to make the pattern specified for the specified points like the center of the circle and the count.
+
+37
+00:04:16,260 --> 00:04:24,180
+There is six such kind of element with the angle between each of them.
+
+38
+00:04:24,220 --> 00:04:25,620
+Sixty degrees.
+
+39
+00:04:25,660 --> 00:04:32,430
+So see your rotated in this way and that of the circle.
+
+40
+00:04:32,730 --> 00:04:35,190
+The circle with the damage is 20 to.
+
+41
+00:04:41,050 --> 00:04:55,180
+Twenty two, and now you can hide this reference or course in order to better see our sketch, next
+
+42
+00:04:55,180 --> 00:05:05,830
+step is to know the element in the two circles with the diameter 12 and 20 to select the circle.
+
+43
+00:05:11,620 --> 00:05:13,000
+12 percent.
+
+44
+00:05:14,180 --> 00:05:24,800
+And the same sort of code to the middle and so distance between this and the circles of fifty seven,
+
+45
+00:05:24,810 --> 00:05:29,420
+so let's defined this distance, this and this.
+
+46
+00:05:32,210 --> 00:05:34,460
+Fifty seven percent.
+
+47
+00:05:36,560 --> 00:05:48,740
+Now is only one more line, the circle here with the to 90 closest circle.
+
+48
+00:05:51,890 --> 00:06:01,730
+The diameter is 90 percent, so now it's to make the ark feel it is a 20 minute diameter stimulator.
+
+49
+00:06:01,760 --> 00:06:07,670
+So this, this and this 20 millimeters.
+
+50
+00:06:08,450 --> 00:06:09,470
+And here.
+
+51
+00:06:15,230 --> 00:06:24,610
+This is 20 now, we can make three of this evidence, so we'll play that part.
+
+52
+00:06:24,810 --> 00:06:34,370
+The next is to draw these elements here first to draw the circle with the Demitrius 18 in 36.
+
+53
+00:06:41,750 --> 00:06:52,300
+Eighteen, then four to six different other parameters, distance between this circle and the circle
+
+54
+00:06:52,310 --> 00:06:53,660
+is 104.
+
+55
+00:06:53,680 --> 00:06:54,860
+Let's define this.
+
+56
+00:06:56,300 --> 00:06:57,980
+From the this year.
+
+57
+00:06:59,750 --> 00:07:00,410
+To hear
+
+58
+00:07:02,910 --> 00:07:04,910
+104 millimeters.
+
+59
+00:07:06,330 --> 00:07:08,510
+Then make Mirrool.
+
+60
+00:07:12,150 --> 00:07:21,690
+With these two circles, this one and this one centerline on the Y axis, so you make the middle distance
+
+61
+00:07:21,690 --> 00:07:25,830
+between these two circles of 90 millimeters.
+
+62
+00:07:25,830 --> 00:07:27,120
+So define this one.
+
+63
+00:07:29,970 --> 00:07:33,720
+This one and this one is 19
+
+64
+00:07:36,510 --> 00:07:52,020
+Crozet, the year we had after the radius of 40, so we can make the arc, it is 40 minutes to this
+
+65
+00:07:52,020 --> 00:07:57,750
+one, then it's of or arc with the ladies of 20.
+
+66
+00:07:59,730 --> 00:08:03,710
+Can make all this in this.
+
+67
+00:08:05,890 --> 00:08:07,650
+20 percent of.
+
+68
+00:08:14,130 --> 00:08:14,850
+20.
+
+69
+00:08:17,870 --> 00:08:24,360
+So now is to make the trip in order to do it on this association.
+
+70
+00:08:24,560 --> 00:08:25,310
+This one.
+
+71
+00:08:25,910 --> 00:08:27,880
+This one and this one.
+
+72
+00:08:42,640 --> 00:08:46,730
+This this was also, I think, this the mistake.
+
+73
+00:08:49,280 --> 00:09:02,290
+OK, let's say the up to 40, this one and this one is for the 9th.
+
+74
+00:09:02,290 --> 00:09:02,800
+Correct.
+
+75
+00:09:03,880 --> 00:09:05,930
+OK, let's take one more time.
+
+76
+00:09:05,950 --> 00:09:08,790
+This no Sicily lines.
+
+77
+00:09:08,800 --> 00:09:09,270
+No.
+
+78
+00:09:09,670 --> 00:09:11,540
+And close it and finish.
+
+79
+00:09:11,710 --> 00:09:16,420
+So we see our project is finish this project.
+
+80
+00:09:17,140 --> 00:09:20,030
+Let's continue with the second project.
+
+81
+00:09:20,050 --> 00:09:20,680
+This one.
+
+82
+00:09:22,060 --> 00:09:27,790
+Save this one and the file.
+
+83
+00:09:28,170 --> 00:09:29,190
+Open new file.
+
+84
+00:09:30,130 --> 00:09:34,510
+Save it as part five.
+
+85
+00:09:35,560 --> 00:09:36,940
+The same in.
+
+86
+00:09:39,100 --> 00:09:39,940
+Desktop.
+
+87
+00:09:42,130 --> 00:09:44,140
+Okay and okay.
+
+88
+00:09:45,820 --> 00:09:49,930
+So let the sketch playing press OK.
+
+89
+00:09:53,900 --> 00:10:03,470
+We can start to draw the party starting from here with a diameter of ninety four and the reference diameter
+
+90
+00:10:03,470 --> 00:10:04,550
+is sixty four.
+
+91
+00:10:10,220 --> 00:10:24,100
+Ninety four and sixty four this sort of go to the first one.
+
+92
+00:10:28,490 --> 00:10:33,920
+This is central here, one reference line.
+
+93
+00:10:38,070 --> 00:10:43,650
+Draw a circle here, the defined diameter is.
+
+94
+00:10:45,260 --> 00:10:45,890
+12.
+
+95
+00:10:52,860 --> 00:10:56,100
+And using the geometrical constraint.
+
+96
+00:10:57,260 --> 00:11:00,680
+Point on the curve, selecta point.
+
+97
+00:11:02,000 --> 00:11:02,390
+And.
+
+98
+00:11:03,770 --> 00:11:15,030
+Axis, then again, the point and circle, the same we did on the previous exercise, close it and the
+
+99
+00:11:15,030 --> 00:11:17,640
+same as previous steps to make it better.
+
+100
+00:11:18,120 --> 00:11:19,050
+There is a six.
+
+101
+00:11:20,480 --> 00:11:22,360
+Well, circles button.
+
+102
+00:11:23,610 --> 00:11:26,080
+Selecta could make button this one.
+
+103
+00:11:26,100 --> 00:11:34,770
+The method is circular, specify appointee's Centropa circle, it seeks the manifest produce or present.
+
+104
+00:11:37,770 --> 00:11:38,250
+Drew.
+
+105
+00:11:41,760 --> 00:11:45,900
+Circle here is the diameter is six to six.
+
+106
+00:11:49,670 --> 00:11:52,430
+Thirty six percent.
+
+107
+00:11:54,650 --> 00:12:05,540
+Well, you have to draw this elements in order to do this, let's draw the circle, it's the diameter
+
+108
+00:12:05,540 --> 00:12:07,190
+is 200.
+
+109
+00:12:10,260 --> 00:12:16,290
+Circle 100 multiplied by two, then.
+
+110
+00:12:18,110 --> 00:12:18,860
+Draw two
+
+111
+00:12:22,760 --> 00:12:26,330
+lines, convert all of them to the reference.
+
+112
+00:12:28,300 --> 00:12:34,450
+And maybe it's the angle is 30 millimeters.
+
+113
+00:12:40,310 --> 00:12:46,160
+Delineation between this and this is 30 degrees.
+
+114
+00:12:52,710 --> 00:12:59,460
+The same man in the middle of this line and this line.
+
+115
+00:13:01,380 --> 00:13:08,040
+Then we can make to move this part now we obtained these.
+
+116
+00:13:11,380 --> 00:13:12,040
+So we can.
+
+117
+00:13:14,110 --> 00:13:17,450
+Convert also this one to the reference one.
+
+118
+00:13:18,010 --> 00:13:22,790
+So now I'm using the offset, we can obtain these two lines.
+
+119
+00:13:23,030 --> 00:13:25,840
+The distance is the same here.
+
+120
+00:13:25,850 --> 00:13:26,920
+Distance is.
+
+121
+00:13:29,220 --> 00:13:31,910
+12 millimeters here.
+
+122
+00:13:31,950 --> 00:13:40,800
+If you're there is the opposite function of the core functions like this one, this one in the distance
+
+123
+00:13:40,800 --> 00:13:44,140
+is 12, rediscuss 12.
+
+124
+00:13:44,160 --> 00:13:47,780
+And if you make the symmetrical to be in the two sides.
+
+125
+00:13:47,800 --> 00:13:49,130
+So that's okay.
+
+126
+00:13:49,980 --> 00:13:55,920
+Now you can make the arc here you see ARC.
+
+127
+00:13:57,920 --> 00:14:00,520
+The three points, first point.
+
+128
+00:14:03,330 --> 00:14:06,690
+The second point, and that is to have.
+
+129
+00:14:09,460 --> 00:14:09,700
+This.
+
+130
+00:14:11,330 --> 00:14:12,980
+And West Point.
+
+131
+00:14:15,630 --> 00:14:18,600
+And they can point to both president.
+
+132
+00:14:21,080 --> 00:14:24,640
+The same will draw the these two lines.
+
+133
+00:14:24,680 --> 00:14:29,850
+It's the distance is twenty three making offset.
+
+134
+00:14:31,880 --> 00:14:34,430
+This line is 23.
+
+135
+00:14:38,320 --> 00:14:44,500
+That's OK, the same arc with the radius of twenty three.
+
+136
+00:14:54,490 --> 00:14:56,620
+Twenty three percent would be.
+
+137
+00:15:11,630 --> 00:15:14,010
+Then three city into so.
+
+138
+00:15:16,170 --> 00:15:20,610
+Close this one and last step is to throw this to.
+
+139
+00:15:22,230 --> 00:15:25,920
+Part of the elements draw, firstly is the.
+
+140
+00:15:27,790 --> 00:15:39,760
+Lying and using the geometrical swing, make it vertical so it will come to a close look, we can extend
+
+141
+00:15:39,760 --> 00:15:44,150
+it, then make it Mirrool.
+
+142
+00:15:46,340 --> 00:15:54,170
+About the centerline and define the distance between them, it was sort of six.
+
+143
+00:15:57,170 --> 00:15:58,010
+And make.
+
+144
+00:15:59,070 --> 00:16:03,900
+The field here, it is, the 10 and nine.
+
+145
+00:16:09,200 --> 00:16:09,710
+Tim.
+
+146
+00:16:16,600 --> 00:16:16,930
+And.
+
+147
+00:16:23,640 --> 00:16:26,190
+So close.
+
+148
+00:16:27,180 --> 00:16:27,670
+And.
+
+149
+00:16:30,580 --> 00:16:36,270
+That's to make it easier, OK, to visit.
+
+150
+00:17:08,200 --> 00:17:10,390
+And make it three.
+
+151
+00:17:17,520 --> 00:17:20,040
+And make the constraint of tangency.
+
+152
+00:17:22,100 --> 00:17:23,170
+It in this.
+
+153
+00:17:24,710 --> 00:17:25,760
+In this world.
+
+154
+00:17:32,070 --> 00:17:32,580
+It is.
+
+155
+00:17:36,830 --> 00:17:42,920
+Andrews, one more here, nine percent.
+
+156
+00:17:44,200 --> 00:17:46,320
+Can then we can make.
+
+157
+00:17:48,610 --> 00:17:54,610
+The man is finished with close to finish sketch.
+
+158
+00:17:57,470 --> 00:17:58,260
+Save it.
+
+159
+00:18:02,420 --> 00:18:05,420
+This is the second project.
+
+160
+00:18:08,280 --> 00:18:09,860
+Let's continue to search for.
+
+161
+00:18:12,410 --> 00:18:13,070
+This one.
+
+162
+00:18:16,400 --> 00:18:17,840
+So it is a good one.
+
+163
+00:18:19,440 --> 00:18:21,860
+OK, you file.
+
+164
+00:18:25,670 --> 00:18:29,000
+Part six, Wookey.
+
+165
+00:18:32,780 --> 00:18:33,380
+Skitch.
+
+166
+00:18:34,580 --> 00:18:37,150
+So let the plane OK?
+
+167
+00:18:38,900 --> 00:18:43,220
+Can draw the sketch with the circle 30 millimeters.
+
+168
+00:18:48,330 --> 00:18:49,650
+30 millimeters.
+
+169
+00:18:53,700 --> 00:18:55,770
+Then the rest of the circle with the.
+
+170
+00:18:56,900 --> 00:18:59,000
+The limited release 55
+
+171
+00:19:04,040 --> 00:19:07,940
+converted to the reference.
+
+172
+00:19:14,420 --> 00:19:20,210
+The same one one reference line that Kalanchoe to the resonance.
+
+173
+00:19:21,800 --> 00:19:26,510
+No small circle with the diameter of 10.
+
+174
+00:19:29,290 --> 00:19:29,480
+But.
+
+175
+00:19:32,260 --> 00:19:43,150
+Then the same as I did before, geometrical constraint point on the cool to go into this line in the
+
+176
+00:19:43,150 --> 00:19:48,730
+circle, in this circle close and make it pattern.
+
+177
+00:19:52,550 --> 00:20:00,080
+This one is circle point and then six degrees of 60 degrees.
+
+178
+00:20:00,770 --> 00:20:03,710
+Okay, then this one.
+
+179
+00:20:04,370 --> 00:20:08,630
+Now we draw this circle, the diameter of 80.
+
+180
+00:20:12,490 --> 00:20:21,970
+80 percent draw this circle 20 and that, too, in the end, 12.
+
+181
+00:20:22,000 --> 00:20:22,450
+Yes.
+
+182
+00:20:26,700 --> 00:20:27,270
+12.
+
+183
+00:20:42,800 --> 00:20:43,480
+Twenty.
+
+184
+00:20:44,210 --> 00:20:47,960
+OK, let's make geometrical screen coincident.
+
+185
+00:20:49,420 --> 00:20:51,580
+This with this.
+
+186
+00:20:57,010 --> 00:21:04,900
+There's the tangency here, that's what let's throw out the tangent constrained.
+
+187
+00:21:07,550 --> 00:21:13,580
+This one did this one, we get good clinical.
+
+188
+00:21:14,850 --> 00:21:15,270
+So.
+
+189
+00:21:19,640 --> 00:21:20,800
+Make it the mirror.
+
+190
+00:21:23,960 --> 00:21:31,340
+These two on the central axis, on this one, you seem to mirrored and defined a distance.
+
+191
+00:21:36,440 --> 00:21:37,820
+Is 100.
+
+192
+00:21:39,840 --> 00:21:40,380
+And.
+
+193
+00:21:44,800 --> 00:21:54,820
+And then also make the maitre d d d d around existence.
+
+194
+00:21:55,380 --> 00:21:59,290
+OK, then define the distance from this.
+
+195
+00:21:59,380 --> 00:22:02,530
+And this is what defines.
+
+196
+00:22:10,850 --> 00:22:11,240
+Then.
+
+197
+00:22:20,210 --> 00:22:21,440
+Distinctive it.
+
+198
+00:22:27,590 --> 00:22:37,260
+We can make it a tangent, this one and this one, and extend this one, OK?
+
+199
+00:22:37,980 --> 00:22:45,810
+Can make tomorrow we can do all of them one by one, this one and this one.
+
+200
+00:22:46,830 --> 00:22:56,340
+In this case, we have to make it to check the tendency between this line and this circle the same Mr..
+
+201
+00:22:57,440 --> 00:23:12,800
+This one and this one on the list exists, and Jada Tangency, this this one in this.
+
+202
+00:23:14,480 --> 00:23:16,130
+With this one this week.
+
+203
+00:23:20,220 --> 00:23:22,020
+Through this, actually, the.
+
+204
+00:23:23,330 --> 00:23:27,230
+The is for the 20.
+
+205
+00:23:36,880 --> 00:23:43,090
+To do so, let's make it costly and often you see this one.
+
+206
+00:23:44,360 --> 00:23:45,320
+And this one.
+
+207
+00:23:47,700 --> 00:23:53,490
+Consider this already exists to try and make.
+
+208
+00:23:54,620 --> 00:23:57,750
+This one and this one 20.
+
+209
+00:24:00,900 --> 00:24:02,040
+Make it Miro's.
+
+210
+00:24:04,100 --> 00:24:16,500
+This one and this one on the school gates mirrored Prestwick crosswind, if you directly press the sea
+
+211
+00:24:16,790 --> 00:24:19,490
+keyboard from your keyboard, it will open.
+
+212
+00:24:19,490 --> 00:24:21,180
+The geometry constraint is.
+
+213
+00:24:23,200 --> 00:24:23,800
+One of the.
+
+214
+00:24:25,960 --> 00:24:27,680
+Key features of the links.
+
+215
+00:24:39,150 --> 00:24:46,890
+This one week, last two is this and this and then this one.
+
+216
+00:24:48,320 --> 00:24:58,290
+We did this one, but as you can see, it's finished with the no, I have to make the dream of the unnecessary
+
+217
+00:24:58,340 --> 00:25:00,340
+delay this one as well.
+
+218
+00:25:01,130 --> 00:25:04,880
+Then closing finish now is finished.
+
+219
+00:25:05,200 --> 00:25:09,590
+You see, we derailed our project.
+
+220
+00:25:10,800 --> 00:25:17,860
+Last lost project, okay, save this incident for today.
+
+221
+00:25:18,690 --> 00:25:20,040
+The lesson is our.
+
+222
+00:25:21,690 --> 00:25:30,060
+And from the next lesson, they will see how to make the exchange and the rules, as I mentioned in
+
+223
+00:25:30,570 --> 00:25:33,220
+the previous exercise lesson.
+
+224
+00:25:33,750 --> 00:25:35,880
+See you on the next lesson.
+
+225
+00:25:36,480 --> 00:25:38,100
+Thank you very much for your attention.
