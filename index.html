@@ -1,161 +1,525 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CUSAT MechNotes</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:Arial, Helvetica, sans-serif;
-    background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-
-.container{
-    max-width:700px;
-    width:100%;
-}
-
-.logo{
-    width:100px;
-    height:100px;
-    margin:0 auto 25px;
-    border:3px solid #38bdf8;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:42px;
-    font-weight:bold;
-    color:#38bdf8;
-}
-
-h1{
-    font-size:3rem;
-    margin-bottom:10px;
-}
-
-.highlight{
-    color:#38bdf8;
-}
-
-.tagline{
-    font-size:1.2rem;
-    color:#cbd5e1;
-    margin-bottom:35px;
-}
-
-.status{
-    background:rgba(255,255,255,0.08);
-    padding:20px;
-    border-radius:16px;
-    margin-bottom:30px;
-    border:1px solid rgba(255,255,255,0.15);
-}
-
-.status h2{
-    margin-bottom:10px;
-    color:#38bdf8;
-}
-
-.progress-bar{
-    width:100%;
-    height:12px;
-    background:rgba(255,255,255,0.15);
-    border-radius:999px;
-    overflow:hidden;
-    margin-top:15px;
-}
-
-.progress{
-    width:70%;
-    height:100%;
-    background:#38bdf8;
-    border-radius:999px;
-}
-
-.features{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:12px;
-    margin-bottom:35px;
-}
-
-.feature{
-    background:rgba(255,255,255,0.08);
-    padding:12px 18px;
-    border-radius:999px;
-    border:1px solid rgba(255,255,255,0.1);
-}
-
-.footer{
-    color:#94a3b8;
-    font-size:0.95rem;
-}
-
-@media(max-width:600px){
-    h1{
-        font-size:2.2rem;
-    }
-
-    .tagline{
-        font-size:1rem;
-    }
-}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gearbox — CUSAT Mechanical Notes</title>
+<script src="./support.js"></script>
 </head>
-
 <body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 20px; }
+  input, button, select, textarea { font-family: inherit; }
+  @keyframes gbUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes gbFade { from { opacity: 0; } to { opacity: 1; } }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="{{ rootStyle }}">
 
-<div class="container">
-
-    <div class="logo">M</div>
-
-    <h1>CUSAT <span class="highlight">MechNotes</span></h1>
-
-    <p class="tagline">
-        Mechanical Engineering Notes, Resources & Study Materials
-    </p>
-
-    <div class="status">
-        <h2>🚧 Website Under Construction</h2>
-        <p>
-            We're building a centralized platform for CUSAT Mechanical Engineering students.
-            Notes, lab records, question papers, study materials, and more will be available soon.
-        </p>
-
-        <div class="progress-bar">
-            <div class="progress"></div>
+  <!-- ============ TOP BAR ============ -->
+  <header style="position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 12px clamp(14px, 3vw, 28px); display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+      <div onClick="{{ goHome }}" style="display: flex; align-items: center; gap: 10px; cursor: pointer; flex-shrink: 0;">
+        <div style="width: 38px; height: 38px; border-radius: 11px; background: var(--primary); display: grid; place-items: center; color: var(--primary-ink); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; box-shadow: 0 6px 16px -6px var(--primary);">G</div>
+        <div>
+          <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: -0.02em;">Gearbox</div>
+          <div style="font-size: 11px; color: var(--dim); letter-spacing: 0.02em; margin-top: 2px;">CUSAT Mechanical</div>
         </div>
-    </div>
+      </div>
 
-    <div class="features">
-        <div class="feature">📚 Semester Notes</div>
-        <div class="feature">📝 Previous Question Papers</div>
-        <div class="feature">🔬 Lab Resources</div>
-        <div class="feature">📖 Study Guides</div>
-        <div class="feature">🎓 Exam Preparation</div>
-    </div>
+      <div style="position: relative; flex: 1; min-width: 180px; max-width: 460px; margin: 0 auto;">
+        <div style="position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: var(--dim); font-size: 15px;">⌕</div>
+        <input ref="{{ searchRef }}" value="{{ search }}" onInput="{{ onSearch }}" placeholder="Search notes, subjects, papers…" style="width: 100%; padding: 10px 14px 10px 34px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: 14px; outline: none;" style-focus="border-color: var(--primary); background: var(--surface);">
+        <sc-if value="{{ hasSearch }}" hint-placeholder-val="{{ false }}">
+          <div style="position: absolute; top: calc(100% + 8px); left: 0; right: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 20px 50px -20px rgba(0,0,0,0.35); overflow: hidden; z-index: 50; animation: gbFade 0.14s ease; max-height: 60vh; overflow-y: auto;">
+            <sc-for list="{{ searchResults }}" as="r" hint-placeholder-count="0">
+              <div onClick="{{ r.open }}" style="display: flex; align-items: center; gap: 12px; padding: 11px 14px; cursor: pointer; border-bottom: 1px solid var(--border);" style-hover="background: var(--surface2);">
+                <div style="{{ r.badgeStyle }}">{{ r.typeLabel }}</div>
+                <div style="min-width: 0; flex: 1;">
+                  <div style="font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ r.title }}</div>
+                  <div style="font-size: 12px; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ r.crumb }}</div>
+                </div>
+              </div>
+            </sc-for>
+            <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+              <div style="padding: 20px; text-align: center; color: var(--dim); font-size: 14px;">No matches for "{{ search }}"</div>
+            </sc-if>
+          </div>
+        </sc-if>
+      </div>
 
-    <div class="footer">
-        © 2026 CUSAT MechNotes • Coming Soon
+      <sc-if value="{{ showBarActions }}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+          <button onClick="{{ cycleTheme }}" title="Change color" style="width: 40px; height: 40px; border-radius: 11px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; display: grid; place-items: center;"><span style="width: 16px; height: 16px; border-radius: 50%; background: var(--primary); display: block;"></span></button>
+          <button onClick="{{ toggleDark }}" title="Dark mode" style="width: 40px; height: 40px; border-radius: 11px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; font-size: 16px;">{{ darkIcon }}</button>
+        </div>
+      </sc-if>
     </div>
+  </header>
+
+  <!-- ============ BREADCRUMB ============ -->
+  <sc-if value="{{ showCrumb }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 16px clamp(14px, 3vw, 28px) 0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 13.5px;">
+      <sc-for list="{{ crumbs }}" as="c" hint-placeholder-count="2">
+        <span onClick="{{ c.open }}" style="{{ c.style }}">{{ c.label }}</span>
+        <sc-if value="{{ c.sep }}" hint-placeholder-val="{{ false }}"><span style="color: var(--dim); opacity: 0.6;">›</span></sc-if>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <main style="max-width: 1180px; margin: 0 auto; padding: clamp(18px, 3vw, 34px) clamp(14px, 3vw, 28px) 120px; width: 100%;">
+
+    <!-- ============ LOADING ============ -->
+    <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 100px 20px; color: var(--dim); gap: 12px;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--text);">Loading the archive…</div>
+        <div style="font-size: 14px;">Fetching the subject index.</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ loadFailed }}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 100px 20px; color: var(--dim); gap: 12px; text-align: center;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--text);">Couldn't load the archive index.</div>
+        <div style="font-size: 14px; max-width: 40ch;">manifest.json failed to load. Try refreshing — if it keeps happening the file may not have deployed yet.</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isReady }}" hint-placeholder-val="{{ true }}">
+
+    <!-- ============ HOME ============ -->
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+      <section style="animation: gbUp 0.4s ease;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 13px; border-radius: 100px; background: var(--primary-soft); color: var(--primary); font-size: 13px; font-weight: 600; margin-bottom: 18px;">● Built by CUSAT Mech students, for students</div>
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 5.5vw, 52px); line-height: 1.05; letter-spacing: -0.03em; margin: 0 0 16px; max-width: 15ch; text-wrap: balance;">Every note, paper &amp; lecture for Mechanical — in one place.</h1>
+        <p style="font-size: clamp(15px, 2vw, 18px); color: var(--dim); max-width: 52ch; margin: 0 0 30px; line-height: 1.55;">Pick your scheme, drill into any semester and subject, and grab handwritten notes, slides, textbooks and previous papers — pulled straight from the shared archive.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 44px;">
+          <sc-for list="{{ schemeCards }}" as="s" hint-placeholder-count="2">
+            <div onClick="{{ s.open }}" style="{{ s.cardStyle }}" style-hover="transform: translateY(-4px); box-shadow: 0 24px 50px -24px rgba(0,0,0,0.4);">
+              <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+                <div style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; letter-spacing: -0.02em;">{{ s.year }}</div>
+                <div style="padding: 5px 11px; border-radius: 100px; font-size: 12px; font-weight: 600; background: rgba(255,255,255,0.16); color: #fff;">{{ s.badge }}</div>
+              </div>
+              <div style="font-size: 16px; font-weight: 600; margin-top: 6px; color: #fff;">{{ s.title }}</div>
+              <div style="font-size: 13.5px; opacity: 0.82; margin-top: 4px; color: #fff; line-height: 1.5;">{{ s.desc }}</div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 20px; font-size: 14px; font-weight: 600; color: #fff;">Browse {{ s.semCount }} semesters <span style="font-size: 17px;">→</span></div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-bottom: 46px;">
+          <sc-for list="{{ stats }}" as="st" hint-placeholder-count="4">
+            <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 20px;">
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.02em; color: var(--primary);">{{ st.value }}</div>
+              <div style="font-size: 13.5px; color: var(--dim); margin-top: 3px;">{{ st.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px;">
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; letter-spacing: -0.02em; margin: 0;">Jump into a subject</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px;">
+          <sc-for list="{{ featured }}" as="f" hint-placeholder-count="4">
+            <div onClick="{{ f.open }}" style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 16px; cursor: pointer; display: flex; gap: 13px; align-items: center;" style-hover="border-color: var(--primary); transform: translateY(-2px);">
+              <div style="{{ f.tileStyle }}"><span style="font-family: 'Space Grotesk', monospace; font-size: 12px; font-weight: 700;">{{ f.typeLabel }}</span></div>
+              <div style="min-width: 0;">
+                <div style="font-size: 14.5px; font-weight: 600; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ f.title }}</div>
+                <div style="font-size: 12.5px; color: var(--dim); margin-top: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ f.crumb }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ============ SEMESTER GRID ============ -->
+    <sc-if value="{{ isScheme }}" hint-placeholder-val="{{ false }}">
+      <section style="animation: gbUp 0.35s ease;">
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px, 4vw, 38px); letter-spacing: -0.03em; margin: 0 0 6px;">{{ schemeTitle }}</h1>
+        <p style="color: var(--dim); font-size: 15.5px; margin: 0 0 28px;">{{ schemeSub }}</p>
+        <sc-if value="{{ hasSemesters }}" hint-placeholder-val="{{ true }}">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px;">
+            <sc-for list="{{ semesters }}" as="sem" hint-placeholder-count="8">
+              <div onClick="{{ sem.open }}" style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; cursor: pointer; position: relative; overflow: hidden;" style-hover="border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 18px 40px -22px rgba(0,0,0,0.35);">
+                <div style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; color: var(--primary); letter-spacing: 0.04em;">SEM {{ sem.n }}</div>
+                <div style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; margin-top: 8px; letter-spacing: -0.02em;">{{ sem.title }}</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 22px;">
+                  <span style="font-size: 13.5px; color: var(--dim);">{{ sem.count }} subjects</span>
+                  <span style="color: var(--primary); font-size: 18px;">→</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ noSemesters }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 40px 0; color: var(--dim); font-size: 14.5px;">No semesters indexed for this scheme yet.</div>
+        </sc-if>
+      </section>
+    </sc-if>
+
+    <!-- ============ SUBJECT LIST ============ -->
+    <sc-if value="{{ isSemester }}" hint-placeholder-val="{{ false }}">
+      <section style="animation: gbUp 0.35s ease;">
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px, 4vw, 38px); letter-spacing: -0.03em; margin: 0 0 6px;">{{ semTitle }}</h1>
+        <p style="color: var(--dim); font-size: 15.5px; margin: 0 0 28px;">{{ semSub }}</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px;">
+          <sc-for list="{{ subjects }}" as="sub" hint-placeholder-count="5">
+            <div onClick="{{ sub.open }}" style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 20px; cursor: pointer; display: flex; align-items: center; gap: 16px;" style-hover="border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 16px 36px -22px rgba(0,0,0,0.35);">
+              <div style="width: 50px; height: 50px; border-radius: 13px; background: var(--primary-soft); color: var(--primary); display: grid; place-items: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px; flex-shrink: 0;">{{ sub.code }}</div>
+              <div style="min-width: 0; flex: 1;">
+                <div style="font-size: 16px; font-weight: 600; line-height: 1.25;">{{ sub.name }}</div>
+                <div style="font-size: 13px; color: var(--dim); margin-top: 4px;">{{ sub.meta }}</div>
+              </div>
+              <span style="color: var(--primary); font-size: 18px;">→</span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+
+    <!-- ============ SUBJECT DETAIL ============ -->
+    <sc-if value="{{ isSubject }}" hint-placeholder-val="{{ false }}">
+      <section style="animation: gbUp 0.35s ease;">
+        <div style="background: var(--primary); border-radius: calc(var(--r) + 4px); padding: clamp(20px, 3vw, 30px); color: #fff; margin-bottom: 24px; box-shadow: 0 20px 44px -26px var(--primary);">
+          <div style="font-size: 13px; font-weight: 600; opacity: 0.85; letter-spacing: 0.04em;">{{ subjCrumb }}</div>
+          <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(24px, 4vw, 36px); letter-spacing: -0.03em; margin: 8px 0 0; color: #fff;">{{ subjName }}</h1>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;">
+            <sc-for list="{{ subjTags }}" as="t" hint-placeholder-count="3">
+              <span style="padding: 5px 12px; border-radius: 100px; background: rgba(255,255,255,0.18); font-size: 13px; font-weight: 500;">{{ t }}</span>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px;">
+          <sc-for list="{{ tabs }}" as="tab" hint-placeholder-count="5">
+            <button onClick="{{ tab.click }}" style="{{ tab.style }}">{{ tab.label }} <span style="opacity: 0.6; font-weight: 500;">{{ tab.count }}</span></button>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{ hasResources }}" hint-placeholder-val="{{ true }}">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px;">
+            <sc-for list="{{ resources }}" as="r" hint-placeholder-count="6">
+              <div onClick="{{ r.open }}" style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 16px; cursor: pointer; display: flex; gap: 14px; align-items: flex-start;" style-hover="border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 16px 36px -22px rgba(0,0,0,0.3);">
+                <div style="{{ r.tileStyle }}"><span style="font-family: 'Space Grotesk', monospace; font-size: 13px; font-weight: 700;">{{ r.typeLabel }}</span></div>
+                <div style="min-width: 0; flex: 1;">
+                  <div style="font-size: 15px; font-weight: 600; line-height: 1.3;">{{ r.title }}</div>
+                  <div style="font-size: 13px; color: var(--text); opacity: 0.9; margin-top: 6px;">{{ r.meta }}</div>
+                  <div style="font-size: 12.5px; color: var(--dim); margin-top: 3px;">{{ r.sub }}</div>
+                </div>
+                <span style="{{ r.dlStyle }}">↓</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ noResources }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 40px 0; color: var(--dim); font-size: 14.5px;">Nothing in this category yet.</div>
+        </sc-if>
+      </section>
+    </sc-if>
+
+    </sc-if>
+  </main>
+
+  <!-- ============ PREVIEW MODAL ============ -->
+  <sc-if value="{{ previewOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeModals }}" style="position: fixed; inset: 0; z-index: 90; background: rgba(8,10,14,0.55); backdrop-filter: blur(4px); display: grid; place-items: center; padding: 20px; animation: gbFade 0.16s ease;">
+      <div onClick="{{ stop }}" style="background: var(--surface); border: 1px solid var(--border); border-radius: 20px; width: min(640px, 100%); max-height: 88vh; overflow: auto; box-shadow: 0 40px 90px -30px rgba(0,0,0,0.6);">
+        <div style="{{ previewHeroStyle }}">
+          <div style="font-family: 'Space Grotesk', monospace; font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.92); letter-spacing: 0.08em;">{{ previewTypeLabel }}</div>
+        </div>
+        <div style="padding: 22px 24px 24px;">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;">
+            <div>
+              <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; letter-spacing: -0.02em; margin: 0 0 6px;">{{ previewTitle }}</h3>
+              <div style="font-size: 13.5px; color: var(--dim);">{{ previewMeta }} · {{ previewSub }}</div>
+            </div>
+            <button onClick="{{ closeModals }}" style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); cursor: pointer; font-size: 16px;">✕</button>
+          </div>
+          <div style="display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap;">
+            <a href="{{ previewHref }}" target="_blank" rel="noopener" style="flex: 1; min-width: 140px; padding: 13px; border-radius: 12px; border: none; background: var(--primary); color: var(--primary-ink); font-size: 14.5px; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; display: block;">Open</a>
+            <a href="{{ previewHref }}" download="{{ previewName }}" style="padding: 13px 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: 14.5px; font-weight: 600; cursor: pointer; text-decoration: none;">Download ↓</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ============ MOBILE BOTTOM NAV ============ -->
+  <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+    <nav style="position: sticky; bottom: 0; z-index: 60; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(14px); border-top: 1px solid var(--border); display: flex; padding: 8px 6px calc(8px + env(safe-area-inset-bottom));">
+      <button onClick="{{ goHome }}" style="flex: 1; background: none; border: none; color: var(--text); cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px; font-size: 11px; font-weight: 600;"><span style="font-size: 19px;">⌂</span>Home</button>
+      <button onClick="{{ focusSearch }}" style="flex: 1; background: none; border: none; color: var(--text); cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px; font-size: 11px; font-weight: 600;"><span style="font-size: 19px;">⌕</span>Search</button>
+      <button onClick="{{ toggleDark }}" style="flex: 1; background: none; border: none; color: var(--text); cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px; font-size: 11px; font-weight: 600;"><span style="font-size: 19px;">{{ darkIcon }}</span>Theme</button>
+    </nav>
+  </sc-if>
 
 </div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:760},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;indigo&quot;,&quot;emerald&quot;,&quot;coral&quot;],&quot;default&quot;:&quot;coral&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;radius&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:24,&quot;min&quot;:8,&quot;max&quot;:24,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = {
+    view: 'home', scheme: '2019', sem: null, subjectId: null, tab: 'all', search: '',
+    dark: false, theme: null, isMobile: false, preview: null,
+    manifest: null, loadError: false,
+  };
 
+  BUCKET_META = {
+    notes:              { l: 'Notes',       c: '#e0533d' },
+    'previous-papers':  { l: 'Papers',      c: '#7c3aed' },
+    assignments:        { l: 'Assignments', c: '#f0972a' },
+    textbooks:          { l: 'Textbooks',   c: '#2563eb' },
+  };
+  EXT_META = {
+    pdf: '#e0533d', doc: '#2563eb', docx: '#2563eb', ppt: '#f0972a', pptx: '#f0972a',
+    jpg: '#0f9d63', jpeg: '#0f9d63', png: '#0f9d63', gif: '#0f9d63',
+    xls: '#0f9d63', xlsx: '#0f9d63', rar: '#7c3aed', zip: '#7c3aed',
+  };
+
+  rootRef = React.createRef();
+  searchRef = React.createRef();
+
+  componentDidMount() {
+    const measure = () => {
+      const el = this.rootRef.current;
+      const w = el ? el.clientWidth : window.innerWidth;
+      const m = w < 760;
+      if (m !== this.state.isMobile) this.setState({ isMobile: m });
+    };
+    this._measure = measure;
+    if ('ResizeObserver' in window && this.rootRef.current) {
+      this._ro = new ResizeObserver(measure);
+      this._ro.observe(this.rootRef.current);
+    }
+    window.addEventListener('resize', measure);
+    measure();
+
+    fetch('./manifest.json')
+      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(manifest => this.setState({ manifest }))
+      .catch(err => { console.error('[gearbox] manifest load failed:', err); this.setState({ loadError: true }); });
+  }
+  componentWillUnmount() { this._ro && this._ro.disconnect(); window.removeEventListener('resize', this._measure); }
+
+  // ---- data helpers (all real, sourced from manifest.json) ----
+  schemeData(scheme) { return (this.state.manifest && this.state.manifest[scheme]) || {}; }
+  semData(scheme, sem) { return this.schemeData(scheme)[String(sem)] || null; }
+  subjectsFor(scheme, sem) { const s = this.semData(scheme, sem); return s ? s.subjects : []; }
+  findSubject(scheme, sem, name) { return this.subjectsFor(scheme, sem).find(s => s.name === name); }
+
+  fmtSize(bytes) {
+    if (bytes >= 1024 * 1024) return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    if (bytes >= 1024) return Math.round(bytes / 1024) + ' KB';
+    return bytes + ' B';
+  }
+  extLabel(ext) { return (ext || 'file').toUpperCase().slice(0, 4); }
+  extColor(ext) { return this.EXT_META[ext] || '#5f6675'; }
+
+  tile(color, size) {
+    return { width: size, height: size, borderRadius: size > 46 ? '13px' : '11px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: color + '1f', color };
+  }
+
+  fileTitle(name) { const i = name.lastIndexOf('.'); return i > 0 ? name.slice(0, i) : name; }
+  fileHref(path) { return encodeURI(path); }
+
+  vars() {
+    const themes = {
+      indigo:  { p: '#4f46e5', pd: '#8b93f7', a: '#f59e0b' },
+      emerald: { p: '#0f9d63', pd: '#34d399', a: '#f59e0b' },
+      coral:   { p: '#e0533d', pd: '#ff7f68', a: '#3b82f6' },
+    };
+    const name = this.state.theme || this.props.theme || 'coral';
+    const t = themes[name] || themes.coral;
+    const d = this.state.dark;
+    const n = d
+      ? { bg: '#0e1015', s: '#171a21', s2: '#20242e', b: '#2b3040', t: '#eef0f6', dim: '#98a0af' }
+      : { bg: '#f5f6fb', s: '#ffffff', s2: '#eef0f7', b: '#e6e9f2', t: '#171922', dim: '#5f6675' };
+    const prim = d ? t.pd : t.p;
+    return {
+      '--bg': n.bg, '--surface': n.s, '--surface2': n.s2, '--border': n.b, '--text': n.t, '--dim': n.dim,
+      '--primary': prim, '--primary-ink': d ? '#0e1015' : '#fff', '--primary-soft': t.p + (d ? '2e' : '18'),
+      '--accent': t.a, '--r': (this.props.radius ?? 16) + 'px',
+    };
+  }
+
+  // ---- navigation ----
+  goHome = () => this.setState({ view: 'home', search: '', sem: null, subjectId: null });
+  openScheme = (sc) => this.setState({ view: 'scheme', scheme: sc, search: '' });
+  openSem = (n) => this.setState({ view: 'semester', sem: n, search: '' });
+  openSubject = (scheme, sem, name) => this.setState({ view: 'subject', scheme, sem, subjectId: name, tab: 'all', search: '' });
+  setTab = (k) => this.setState({ tab: k });
+  onSearch = (e) => this.setState({ search: e.target.value });
+  toggleDark = () => this.setState({ dark: !this.state.dark });
+  cycleTheme = () => { const order = ['indigo', 'emerald', 'coral']; const cur = this.state.theme || this.props.theme || 'coral'; this.setState({ theme: order[(order.indexOf(cur) + 1) % 3] }); };
+  openPreview = (r) => this.setState({ preview: r });
+  closeModals = () => this.setState({ preview: null });
+  stop = (e) => e.stopPropagation();
+  focusSearch = () => { window.scrollTo({ top: 0 }); this.searchRef && this.searchRef.current && this.searchRef.current.focus(); };
+
+  renderVals() {
+    const st = this.state;
+
+    if (st.loadError) return { rootStyle: { ...this.vars(), minHeight: '100vh' }, isLoading: false, loadFailed: true, isReady: false, showCrumb: false, isMobile: st.isMobile, showBarActions: true, hasSearch: false, search: '', onSearch: this.onSearch, goHome: this.goHome, cycleTheme: this.cycleTheme, toggleDark: this.toggleDark, darkIcon: st.dark ? '☀' : '☾', focusSearch: this.focusSearch, rootRef: this.rootRef, searchRef: this.searchRef, hasInset: false, previewOpen: false };
+    if (!st.manifest) return { rootStyle: { ...this.vars(), minHeight: '100vh' }, isLoading: true, loadFailed: false, isReady: false, showCrumb: false, isMobile: st.isMobile, showBarActions: true, hasSearch: false, search: '', onSearch: this.onSearch, goHome: this.goHome, cycleTheme: this.cycleTheme, toggleDark: this.toggleDark, darkIcon: st.dark ? '☀' : '☾', focusSearch: this.focusSearch, rootRef: this.rootRef, searchRef: this.searchRef, hasInset: false, previewOpen: false };
+
+    const BM = this.BUCKET_META;
+    const badge = ext => ({ padding: '4px 9px', borderRadius: '8px', fontFamily: "'Space Grotesk', monospace", fontSize: '11px', fontWeight: 700, background: this.extColor(ext) + '22', color: this.extColor(ext), flexShrink: 0 });
+
+    // ---- stats (real) ----
+    let subjectCount = 0, fileCount = 0, semCount2019 = Object.keys(this.schemeData('2019')).length, semCount2023 = Object.keys(this.schemeData('2023')).length;
+    for (const sch of ['2019', '2023']) for (const sem of Object.values(this.schemeData(sch))) for (const subj of sem.subjects) {
+      subjectCount++;
+      for (const files of Object.values(subj.buckets)) fileCount += files.length;
+    }
+    const stats = [
+      { value: '2', label: 'Curriculum schemes' },
+      { value: (semCount2019 + semCount2023) + '', label: 'Semesters mapped' },
+      { value: subjectCount + '', label: 'Subjects mapped' },
+      { value: fileCount + '+', label: 'Notes & resources' },
+    ];
+
+    // ---- scheme cards ----
+    const grad = () => `linear-gradient(140deg, var(--primary), color-mix(in srgb, var(--primary) 70%, #000))`;
+    const schemeCards = [
+      { year: '2023', badge: 'Latest', title: '2023 Scheme', desc: 'Revised curriculum — current batches.', semCount: semCount2023 + '', open: () => this.openScheme('2023') },
+      { year: '2019', badge: 'Legacy', title: '2019 Scheme', desc: 'Outgoing batches and backlog reference material.', semCount: semCount2019 + '', open: () => this.openScheme('2019') },
+    ].map(s => ({ ...s, cardStyle: { background: grad(), borderRadius: 'calc(var(--r) + 4px)', padding: '24px', cursor: 'pointer', transition: 'transform .2s, box-shadow .2s', boxShadow: '0 14px 32px -20px var(--primary)' } }));
+
+    // ---- featured: first file from a spread of subjects across both schemes ----
+    const featured = [];
+    outer:
+    for (const sch of ['2023', '2019']) {
+      for (const semKey of Object.keys(this.schemeData(sch)).sort()) {
+        const sem = this.schemeData(sch)[semKey];
+        for (const subj of sem.subjects) {
+          const firstBucket = Object.entries(subj.buckets).find(([, files]) => files.length > 0);
+          if (!firstBucket) continue;
+          const f = firstBucket[1][0];
+          featured.push({
+            typeLabel: this.extLabel(f.ext), tileStyle: this.tile(this.extColor(f.ext), '46px'),
+            title: this.fileTitle(f.name), crumb: sch + ' · Sem ' + semKey + ' · ' + subj.name,
+            open: () => this.openSubject(sch, semKey, subj.name),
+          });
+          if (featured.length >= 4) break outer;
+        }
+      }
+    }
+
+    // ---- search (both schemes) ----
+    const q = st.search.trim().toLowerCase();
+    let searchResults = [];
+    if (q) {
+      outerSearch:
+      for (const sch of ['2019', '2023']) {
+        for (const semKey of Object.keys(this.schemeData(sch)).sort()) {
+          const sem = this.schemeData(sch)[semKey];
+          for (const subj of sem.subjects) {
+            for (const [bucket, files] of Object.entries(subj.buckets)) {
+              for (const f of files) {
+                if (searchResults.length >= 8) break outerSearch;
+                if (f.name.toLowerCase().includes(q) || subj.name.toLowerCase().includes(q) || subj.code.toLowerCase().includes(q)) {
+                  searchResults.push({
+                    typeLabel: this.extLabel(f.ext), badgeStyle: badge(f.ext),
+                    title: this.fileTitle(f.name), crumb: sch + ' · Sem ' + semKey + ' · ' + subj.name + ' · ' + BM[bucket].l,
+                    open: () => this.openPreview({ name: f.name, path: f.path, size: f.size, ext: f.ext, bucket, subjName: subj.name }),
+                  });
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // ---- semester grid ----
+    const semEntries = Object.entries(this.schemeData(st.scheme)).sort((a, b) => Number(a[0]) - Number(b[0]));
+    const semesters = semEntries.map(([n, sem]) => ({ n, title: 'Semester ' + n, count: sem.subjects.length + '', open: () => this.openSem(n) }));
+
+    // ---- subject list ----
+    const subjects = st.sem ? this.subjectsFor(st.scheme, st.sem).map(subj => {
+      const total = Object.values(subj.buckets).reduce((a, f) => a + f.length, 0);
+      return { id: subj.name, code: subj.code, name: subj.name, meta: total + ' resources', open: () => this.openSubject(st.scheme, st.sem, subj.name) };
+    }) : [];
+
+    // ---- subject detail ----
+    const cur = st.subjectId ? this.findSubject(st.scheme, st.sem, st.subjectId) : null;
+    let tabs = [], resources = [], subjTags = [];
+    if (cur) {
+      const order = ['notes', 'previous-papers', 'assignments', 'textbooks'];
+      const allFiles = [];
+      for (const bucket of order) for (const f of cur.buckets[bucket]) allFiles.push({ ...f, bucket });
+      const tabStyle = (active) => ({ padding: '9px 16px', borderRadius: '11px', border: '1px solid ' + (active ? 'transparent' : 'var(--border)'), background: active ? 'var(--primary)' : 'var(--surface)', color: active ? 'var(--primary-ink)' : 'var(--text)', fontSize: '13.5px', fontWeight: 600, cursor: 'pointer' });
+      tabs.push({ key: 'all', label: 'All', count: allFiles.length + '', click: () => this.setTab('all'), style: tabStyle(st.tab === 'all') });
+      order.forEach(b => { if (cur.buckets[b].length) tabs.push({ key: b, label: BM[b].l, count: cur.buckets[b].length + '', click: () => this.setTab(b), style: tabStyle(st.tab === b) }); });
+      resources = allFiles.filter(f => st.tab === 'all' || f.bucket === st.tab).map(f => ({
+        typeLabel: this.extLabel(f.ext), tileStyle: this.tile(this.extColor(f.ext), '52px'),
+        title: this.fileTitle(f.name), meta: this.extLabel(f.ext) + ' · ' + this.fmtSize(f.size) + ' · ' + BM[f.bucket].l,
+        sub: f.sub || cur.name, dlStyle: { color: 'var(--dim)', fontSize: '17px', flexShrink: 0 },
+        open: () => this.openPreview({ ...f, subjName: cur.name }),
+      }));
+      const totalAll = Object.values(cur.buckets).reduce((a, f) => a + f.length, 0);
+      subjTags = [cur.code, totalAll + ' resources', 'Sem ' + st.sem, st.scheme + ' Scheme'];
+    }
+
+    // ---- breadcrumbs ----
+    const crumbLink = { color: 'var(--dim)', cursor: 'pointer', fontWeight: 500 };
+    const crumbLast = { color: 'var(--text)', cursor: 'default', fontWeight: 600 };
+    let crumbs = [];
+    if (st.view !== 'home') {
+      crumbs.push({ label: 'Home', open: this.goHome, style: crumbLink, sep: true });
+      crumbs.push({ label: st.scheme + ' Scheme', open: () => this.openScheme(st.scheme), style: st.view === 'scheme' ? crumbLast : crumbLink, sep: st.view !== 'scheme' });
+      if (st.sem && st.view !== 'scheme') crumbs.push({ label: 'Semester ' + st.sem, open: () => this.openSem(st.sem), style: st.view === 'semester' ? crumbLast : crumbLink, sep: st.view !== 'semester' });
+      if (cur && st.view === 'subject') crumbs.push({ label: cur.name, open: () => {}, style: crumbLast, sep: false });
+    }
+
+    // ---- preview modal ----
+    const p = st.preview;
+    let previewHeroStyle = {}, previewTypeLabel = '', previewHref = '', previewName = '';
+    if (p) {
+      const c = this.extColor(p.ext);
+      previewHeroStyle = { height: '140px', display: 'grid', placeItems: 'center', background: `repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0 12px, transparent 12px 24px), linear-gradient(135deg, ${c}, color-mix(in srgb, ${c} 65%, #000))` };
+      previewTypeLabel = this.extLabel(p.ext) + ' FILE';
+      previewHref = this.fileHref(p.path);
+      previewName = p.name;
+    }
+
+    return {
+      rootStyle: { ...this.vars(), minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)', fontFamily: "'Instrument Sans', system-ui, sans-serif", transition: 'background .3s, color .3s' },
+      isLoading: false, loadFailed: false, isReady: true,
+      // top bar
+      hasInset: false,
+      rootRef: this.rootRef, searchRef: this.searchRef, search: st.search, onSearch: this.onSearch,
+      hasSearch: !!q, searchResults, noResults: !!q && searchResults.length === 0,
+      showBarActions: !st.isMobile, cycleTheme: this.cycleTheme, toggleDark: this.toggleDark, darkIcon: st.dark ? '☀' : '☾',
+      goHome: this.goHome, focusSearch: this.focusSearch, isMobile: st.isMobile,
+      // breadcrumb
+      showCrumb: st.view !== 'home', crumbs,
+      // views
+      isHome: st.view === 'home', isScheme: st.view === 'scheme', isSemester: st.view === 'semester', isSubject: st.view === 'subject',
+      schemeCards, stats, featured,
+      // scheme view
+      schemeTitle: st.scheme + ' Scheme', schemeSub: 'B.Tech Mechanical Engineering · CUSAT · choose a semester to begin.', semesters,
+      hasSemesters: semesters.length > 0, noSemesters: semesters.length === 0,
+      // semester view
+      semTitle: 'Semester ' + st.sem, semSub: (st.scheme || '') + ' Scheme · ' + (subjects.length) + ' subjects', subjects,
+      // subject view
+      subjName: cur ? cur.name : '', subjCrumb: cur ? (st.scheme + ' SCHEME · SEMESTER ' + st.sem) : '', subjTags, tabs, resources,
+      hasResources: resources.length > 0, noResources: resources.length === 0,
+      // preview
+      previewOpen: !!p, previewHeroStyle, previewTypeLabel, previewHref, previewName,
+      previewTitle: p ? this.fileTitle(p.name) : '', previewMeta: p ? this.fmtSize(p.size) : '', previewSub: p ? p.subjName : '',
+      closeModals: this.closeModals, stop: this.stop,
+    };
+  }
+}
+</script>
 </body>
 </html>
