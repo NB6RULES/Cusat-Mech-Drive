@@ -249,7 +249,15 @@
           </div>
         </sc-if>
         <sc-if value="{{ isPdfViewer }}" hint-placeholder-val="{{ false }}">
-          <iframe src="{{ previewHref }}" style="width: 100%; height: 72vh; border: none; display: block;"></iframe>
+          <sc-if value="{{ previewLoading }}" hint-placeholder-val="{{ false }}">
+            <div style="height: 72vh; display: flex; align-items: center; justify-content: center; color: var(--dim); font-size: 14px;">Loading preview…</div>
+          </sc-if>
+          <sc-if value="{{ previewLoadError }}" hint-placeholder-val="{{ false }}">
+            <div style="height: 72vh; display: flex; align-items: center; justify-content: center; color: var(--dim); font-size: 14px; text-align: center; padding: 0 30px;">Couldn't load the preview — use Download below instead.</div>
+          </sc-if>
+          <sc-if value="{{ previewBlobReady }}" hint-placeholder-val="{{ false }}">
+            <iframe src="{{ previewBlobUrl }}" style="width: 100%; height: 72vh; border: none; display: block;"></iframe>
+          </sc-if>
         </sc-if>
         <sc-if value="{{ isOfficeViewer }}" hint-placeholder-val="{{ false }}">
           <iframe src="{{ previewOfficeSrc }}" style="width: 100%; height: 72vh; border: none; display: block;"></iframe>
@@ -328,6 +336,7 @@ class Component extends DCLogic {
   state = {
     view: 'home', scheme: '2019', sem: null, subjectId: null, tab: 'all', search: '',
     dark: false, theme: null, isMobile: false, preview: null, viewerOpen: false,
+    previewBlobUrl: null, previewLoading: false, previewLoadError: false,
     manifest: null, loadError: false,
     installPromptEvent: null, showInstallHelp: false,
   };
@@ -392,7 +401,7 @@ class Component extends DCLogic {
   }
 
   fileTitle(name) { const i = name.lastIndexOf('.'); return i > 0 ? name.slice(0, i) : name; }
-  fileHref(path) { return 'https://cdn.jsdelivr.net/gh/NB6RULES/Cusat-Mech-Drive@main/' + encodeURI(path); }
+  fileHref(path) { return 'https://raw.githubusercontent.com/NB6RULES/Cusat-Mech-Drive/main/' + encodeURI(path); }
 
   vars() {
     const themes = {
@@ -423,9 +432,34 @@ class Component extends DCLogic {
   onSearch = (e) => this.setState({ search: e.target.value });
   toggleDark = () => this.setState({ dark: !this.state.dark });
   cycleTheme = () => { const order = ['indigo', 'emerald', 'coral']; const cur = this.state.theme || this.props.theme || 'coral'; this.setState({ theme: order[(order.indexOf(cur) + 1) % 3] }); };
-  openPreview = (r) => this.setState({ preview: r, viewerOpen: false });
-  closeModals = () => this.setState({ preview: null, viewerOpen: false });
-  loadViewer = () => this.setState({ viewerOpen: true });
+  _revokeBlob() {
+    if (this.state.previewBlobUrl) URL.revokeObjectURL(this.state.previewBlobUrl);
+  }
+  openPreview = (r) => {
+    this._revokeBlob();
+    this.setState({ preview: r, viewerOpen: false, previewBlobUrl: null, previewLoading: false, previewLoadError: false });
+  };
+  closeModals = () => {
+    this._revokeBlob();
+    this.setState({ preview: null, viewerOpen: false, previewBlobUrl: null, previewLoading: false, previewLoadError: false, showInstallHelp: false });
+  };
+  loadViewer = () => {
+    const p = this.state.preview;
+    this.setState({ viewerOpen: true });
+    if (p && p.ext === 'pdf') {
+      this.setState({ previewLoading: true, previewLoadError: false });
+      fetch(this.fileHref(p.path))
+        .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.arrayBuffer(); })
+        .then(buf => {
+          // raw.githubusercontent.com always serves application/octet-stream,
+          // so the blob must be re-tagged as application/pdf or the browser's
+          // PDF viewer won't kick in for the iframe.
+          const blob = new Blob([buf], { type: 'application/pdf' });
+          this.setState({ previewBlobUrl: URL.createObjectURL(blob), previewLoading: false });
+        })
+        .catch(err => { console.error('[cusat-mech-notes] preview fetch failed:', err); this.setState({ previewLoading: false, previewLoadError: true }); });
+    }
+  };
   closeInstallHelp = () => this.setState({ showInstallHelp: false });
   clickInstall = () => {
     const evt = this.state.installPromptEvent;
@@ -608,6 +642,8 @@ class Component extends DCLogic {
       previewTitle: p ? this.fileTitle(p.name) : '', previewMeta: p ? this.fmtSize(p.size) : '', previewSub: p ? p.subjName : '',
       showHero: !viewerActive, isPdfViewer: viewerActive && kind === 'pdf', isOfficeViewer: viewerActive && kind === 'office',
       isImageViewer: viewerActive && kind === 'image', isVideoViewer: viewerActive && kind === 'video',
+      previewLoading: st.previewLoading, previewLoadError: st.previewLoadError,
+      previewBlobReady: !st.previewLoading && !st.previewLoadError && !!st.previewBlobUrl, previewBlobUrl: st.previewBlobUrl,
       showOpenButton: !!p && !viewerActive && kind !== 'none', noPreviewAvailable: !!p && kind === 'none',
       loadViewer: this.loadViewer, closeModals: this.closeModals, stop: this.stop,
       clickInstall: this.clickInstall, showInstallLabel: !st.isMobile, installHelpOpen: st.showInstallHelp, closeInstallHelp: this.closeInstallHelp,

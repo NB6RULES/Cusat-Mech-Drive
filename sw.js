@@ -15,6 +15,7 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
+  if (url.protocol === 'blob:' || url.protocol === 'data:') return; // blob/data URLs aren't fetchable from the SW scope — let the page handle them directly
   if (url.origin !== self.location.origin) return; // let cross-origin file downloads (raw.githubusercontent.com) go straight to network
   event.respondWith(caches.match(event.request).then((cached) => cached || fetch(event.request)));
 });
