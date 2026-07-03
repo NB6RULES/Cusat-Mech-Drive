@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cusat-mech-notes-05aeaa15';
+const CACHE_NAME = 'cusat-mech-notes-2196a72a';
 const APP_SHELL = ['./', './index.html', './support.js', './manifest.json', './site.webmanifest', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', (event) => {

@@ -557,7 +557,7 @@ class Component extends DCLogic {
                   searchResults.push({
                     typeLabel: this.extLabel(f.ext), badgeStyle: badge(f.ext),
                     title: this.fileTitle(f.name), crumb: sch + ' · Sem ' + semKey + ' · ' + subj.name + ' · ' + BM[bucket].l,
-                    open: () => this.openPreview({ name: f.name, path: f.path, size: f.size, ext: f.ext, bucket, subjName: subj.name }),
+                    open: () => this.openPreview({ ...f, bucket, subjName: subj.name }),
                   });
                 }
               }
