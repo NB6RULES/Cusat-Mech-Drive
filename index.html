@@ -270,6 +270,11 @@
         <sc-if value="{{ isVideoViewer }}" hint-placeholder-val="{{ false }}">
           <video src="{{ previewHref }}" controls autoplay style="width: 100%; max-height: 72vh; display: block; background: #000;"></video>
         </sc-if>
+        <sc-if value="{{ isYouTubeViewer }}" hint-placeholder-val="{{ false }}">
+          <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000;">
+            <iframe src="{{ previewEmbedUrl }}" style="position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </sc-if>
         <div style="padding: 22px 24px 24px;">
           <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;">
             <div>
@@ -285,7 +290,12 @@
             <sc-if value="{{ showOpenButton }}" hint-placeholder-val="{{ true }}">
               <button onClick="{{ loadViewer }}" style="flex: 1; min-width: 140px; padding: 13px; border-radius: 12px; border: none; background: var(--primary); color: var(--primary-ink); font-size: 14.5px; font-weight: 600; cursor: pointer;">Open</button>
             </sc-if>
-            <a href="{{ previewHref }}" download="{{ previewName }}" style="padding: 13px 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: 14.5px; font-weight: 600; cursor: pointer; text-decoration: none;">Download ↓</a>
+            <sc-if value="{{ showDownload }}" hint-placeholder-val="{{ true }}">
+              <a href="{{ previewHref }}" download="{{ previewName }}" style="padding: 13px 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: 14.5px; font-weight: 600; cursor: pointer; text-decoration: none;">Download ↓</a>
+            </sc-if>
+            <sc-if value="{{ isYouTube }}" hint-placeholder-val="{{ false }}">
+              <a href="{{ previewYouTubeUrl }}" target="_blank" rel="noopener" style="padding: 13px 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: 14.5px; font-weight: 600; cursor: pointer; text-decoration: none;">Watch on YouTube ↗</a>
+            </sc-if>
           </div>
         </div>
       </div>
@@ -606,11 +616,11 @@ class Component extends DCLogic {
     if (p) {
       const c = this.extColor(p.ext);
       previewHeroStyle = { height: '140px', display: 'grid', placeItems: 'center', background: `repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0 12px, transparent 12px 24px), linear-gradient(135deg, ${c}, color-mix(in srgb, ${c} 65%, #000))` };
-      previewTypeLabel = this.extLabel(p.ext) + ' FILE';
+      previewTypeLabel = p.ytId ? 'YOUTUBE VIDEO' : this.extLabel(p.ext) + ' FILE';
       previewHref = this.fileHref(p.path);
       previewName = p.name;
       previewOfficeSrc = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(previewHref);
-      kind = this.viewerKind(p.ext);
+      kind = p.ytId ? 'youtube' : this.viewerKind(p.ext);
       viewerActive = st.viewerOpen && kind !== 'none';
       if (viewerActive) previewModalStyle = { ...previewModalStyle, width: 'min(1000px, 96vw)' };
     }
@@ -642,6 +652,10 @@ class Component extends DCLogic {
       previewTitle: p ? this.fileTitle(p.name) : '', previewMeta: p ? this.fmtSize(p.size) : '', previewSub: p ? p.subjName : '',
       showHero: !viewerActive, isPdfViewer: viewerActive && kind === 'pdf', isOfficeViewer: viewerActive && kind === 'office',
       isImageViewer: viewerActive && kind === 'image', isVideoViewer: viewerActive && kind === 'video',
+      isYouTubeViewer: viewerActive && kind === 'youtube',
+      previewEmbedUrl: p && p.ytId ? 'https://www.youtube.com/embed/' + p.ytId : '',
+      previewYouTubeUrl: p && p.ytId ? 'https://youtu.be/' + p.ytId : '',
+      isYouTube: !!(p && p.ytId), showDownload: !!p && !(p && p.ytId),
       previewLoading: st.previewLoading, previewLoadError: st.previewLoadError,
       previewBlobReady: !st.previewLoading && !st.previewLoadError && !!st.previewBlobUrl, previewBlobUrl: st.previewBlobUrl,
       showOpenButton: !!p && !viewerActive && kind !== 'none', noPreviewAvailable: !!p && kind === 'none',
